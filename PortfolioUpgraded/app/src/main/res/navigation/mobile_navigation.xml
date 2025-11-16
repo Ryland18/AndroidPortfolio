@@ -12,14 +12,18 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.portfolioupgraded.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
+        android:id="@+id/nav_madlibs"
+        android:name="com.example.portfolioupgraded.ui.gallery.madlibsFragment"
+        android:label="@string/menu_madlib"
         tools:layout="@layout/fragment_madlibs" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.portfolioupgraded.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
+        android:id="@+id/nav_scifiname"
+        android:name="com.example.portfolioupgraded.ui.slideshow.scifinameFragment"
+        android:label="@string/menu_scifiname"
         tools:layout="@layout/fragment_scifiname" />
+    <fragment
+        android:id="@+id/nav_guessanumber"
+        android:name="com.example.portfolioupgraded.ui.number.guessanumberFragment"
+    />
 </navigation>

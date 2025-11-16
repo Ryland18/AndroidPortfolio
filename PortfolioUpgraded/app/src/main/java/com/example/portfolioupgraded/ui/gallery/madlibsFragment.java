@@ -10,18 +10,18 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.portfolioupgraded.databinding.FragmentGalleryBinding;
+import com.example.portfolioupgraded.databinding.FragmentMadlibsBinding;
 
-public class GalleryFragment extends Fragment {
+public class madlibsFragment extends Fragment {
 
-    private FragmentGalleryBinding binding;
+    private FragmentMadlibsBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        GalleryViewModel galleryViewModel =
-                new ViewModelProvider(this).get(GalleryViewModel.class);
+        madlibsViewModel galleryViewModel =
+                new ViewModelProvider(this).get(madlibsViewModel.class);
 
-        binding = FragmentGalleryBinding.inflate(inflater, container, false);
+        binding = FragmentMadlibsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textGallery;
