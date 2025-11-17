@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.portfolioupgraded.databinding.FragmentGuessanumberBinding;
-import com.example.portfolioupgraded.ui.gallery.guessanumberViewModel;
+import com.example.portfolioupgraded.ui.guessanumber.guessanumberViewModel;
 
 public class guessanumberFragment extends Fragment {
 
@@ -19,13 +19,13 @@ public class guessanumberFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-            guessanumberFragment guessanumberViewModel =
+            guessanumberViewModel guessanumberViewModel =
                 new ViewModelProvider(this).get(guessanumberViewModel.class);
 
         binding = FragmentGuessanumberBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textNumber;
+        final TextView textView = binding.textView3;
         guessanumberViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }

@@ -24,6 +24,8 @@
         tools:layout="@layout/fragment_scifiname" />
     <fragment
         android:id="@+id/nav_guessanumber"
-        android:name="com.example.portfolioupgraded.ui.number.guessanumberFragment"
-    />
+        android:name="com.example.portfolioupgraded.ui.guessanumber.guessanumberFragment"
+        android:label="Guess a Number"
+        tools:layout="@layout/fragment_guessanumber"
+        />
 </navigation>

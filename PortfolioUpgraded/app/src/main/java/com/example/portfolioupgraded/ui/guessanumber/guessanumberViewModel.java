@@ -1,8 +1,6 @@
 package com.example.portfolioupgraded.ui.guessanumber;
 
 
-package com.example.portfolioupgraded.ui.number;
-
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
