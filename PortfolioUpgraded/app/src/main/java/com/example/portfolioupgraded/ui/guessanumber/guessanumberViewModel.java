@@ -11,7 +11,7 @@ public class guessanumberViewModel extends ViewModel {
 
     public guessanumberViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is gallery fragment");
+        mText.setValue("This is Guess a Number");
     }
 
     public LiveData<String> getText() {
