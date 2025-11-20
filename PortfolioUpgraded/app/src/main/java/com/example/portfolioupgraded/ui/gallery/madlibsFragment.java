@@ -1,6 +1,7 @@
 package com.example.portfolioupgraded.ui.gallery;
 
 import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -43,6 +44,7 @@ public class madlibsFragment extends Fragment {
 
 
         Button submit = binding.button3;
+        Button reset = binding.button4;
 
         String firstT = first.getText().toString();
         String secondT = second.getText().toString();
@@ -66,11 +68,44 @@ public class madlibsFragment extends Fragment {
                 seventh.setVisibility(GONE);
                 eight.setVisibility(GONE);
 
+                textView.setVisibility(VISIBLE);
+                textView.setText("In a "+ firstT+ "with many fine variatys of "+secondT+ " although it was missing a couple of "+thirdT+" as well as a few "+fourthT + " however it is still a +"+fifthT+ " with very friendly +"+sixthT+ " as long as you follow the rule of +"+seventhT+" which is to always say "+eightT);
 
-                textView.setText("In a "+ firstT+ "with many fine variatys of "+secondT+ " although it was missing a couple of "+thirdT+" as well as a few "+fourthT);
+
+                reset.setVisibility(VISIBLE);
+                submit.setVisibility(GONE);
+
+            }
+        });
+
+
+        reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                first.setVisibility(VISIBLE);
+                second.setVisibility(VISIBLE);
+                third.setVisibility(VISIBLE);
+                fourth.setVisibility(VISIBLE);
+                fifth.setVisibility(VISIBLE);
+                sixth.setVisibility(VISIBLE);
+                seventh.setVisibility(VISIBLE);
+                eight.setVisibility(VISIBLE);
+
+                first.setText("");
+                second.setText("");
+                third.setText("");
+                fourth.setText("");
+                fifth.setText("");
+                sixth.setText("");
+                seventh.setText("");
+                eight.setText("");
 
 
 
+                textView.setVisibility(GONE);
+
+
+                reset.setVisibility(GONE);
 
             }
         });
