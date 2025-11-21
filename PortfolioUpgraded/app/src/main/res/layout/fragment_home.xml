@@ -44,8 +44,8 @@
         <TextView
             android:id="@+id/textView2"
             android:layout_width="match_parent"
-            android:layout_height="244dp"
-            android:text="TextView" />
+            android:layout_height="248dp"
+            android:text="My name is Ryland Martz. I have a gpa of 4.0 for 2 years straight in both junior and senior year. I once worked at holiday world as both a Rides operator and a Drone show crew member. \n \n \n Hobbies : \n * Scuba diving \n * Video games \n \n \n Interest: \n * Game Developer \n * Software Developer" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
