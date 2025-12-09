@@ -104,7 +104,7 @@ public class madlibsFragment extends Fragment {
 
                 textView.setVisibility(GONE);
 
-
+                submit.setVisibility(VISIBLE);
                 reset.setVisibility(GONE);
 
             }
