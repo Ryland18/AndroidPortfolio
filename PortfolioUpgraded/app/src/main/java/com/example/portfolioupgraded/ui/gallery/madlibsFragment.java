@@ -46,14 +46,7 @@ public class madlibsFragment extends Fragment {
         Button submit = binding.button3;
         Button reset = binding.button4;
 
-        String firstT = first.getText().toString();
-        String secondT = second.getText().toString();
-        String thirdT = third.getText().toString();
-        String fourthT = fourth.getText().toString();
-        String fifthT = fifth.getText().toString();
-        String sixthT = sixth.getText().toString();
-        String seventhT = seventh.getText().toString();
-        String eightT = eight.getText().toString();
+
 
 
         submit.setOnClickListener(new View.OnClickListener() {
@@ -67,6 +60,15 @@ public class madlibsFragment extends Fragment {
                 sixth.setVisibility(GONE);
                 seventh.setVisibility(GONE);
                 eight.setVisibility(GONE);
+
+                String firstT = first.getText().toString();
+                String secondT = second.getText().toString();
+                String thirdT = third.getText().toString();
+                String fourthT = fourth.getText().toString();
+                String fifthT = fifth.getText().toString();
+                String sixthT = sixth.getText().toString();
+                String seventhT = seventh.getText().toString();
+                String eightT = eight.getText().toString();
 
                 textView.setVisibility(VISIBLE);
                 textView.setText("In a "+ firstT+ "with many fine variatys of "+secondT+ " although it was missing a couple of "+thirdT+" as well as a few "+fourthT + " however it is still a +"+fifthT+ " with very friendly +"+sixthT+ " as long as you follow the rule of +"+seventhT+" which is to always say "+eightT);

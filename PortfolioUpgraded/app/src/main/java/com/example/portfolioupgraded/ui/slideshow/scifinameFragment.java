@@ -26,13 +26,12 @@ public class scifinameFragment extends Fragment {
         View root = binding.getRoot();
 
         final TextView textView = binding.textSlideshow;
-        slideshowViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
 
-        EditText first = binding.editTextText2;
-        EditText last = binding.editTextText3;
-        EditText city = binding.editTextText4;
-        EditText school = binding.editTextText5;
-        EditText pet = binding.editTextText6;
+        EditText first = binding.editTextText6;
+        EditText last = binding.editTextText2;
+        EditText city = binding.editTextText3;
+        EditText school = binding.editTextText4;
+        EditText pet = binding.editTextText5;
         EditText chara = binding.editTextText7;
 
 
@@ -52,12 +51,12 @@ public class scifinameFragment extends Fragment {
                 String inputchara = chara.getText().toString();
 
                 String firsttwo = inputfirst.length()>=2 ? inputfirst.substring(0,2): inputfirst;
-                String lastthree = inputfirst.length()>=3 ? inputfirst.substring(0,3): inputfirst;
-                String citytwo = inputfirst.length()>=2 ? inputfirst.substring(0,2): inputfirst;
-                String schoolthree = inputfirst.length()>=3 ? inputfirst.substring(0,3): inputfirst;
+                String lastthree = inputlast.length()>=3 ? inputlast.substring(0,3): inputlast;
+                String citytwo = inputschool.length()>=2 ? inputschool.substring(0,2): inputschool;
+                String schoolthree = inputcity.length()>=3 ? inputcity.substring(0,3): inputcity;
 
 
-                String firstName = firsttwo+lastthree;
+                String firstName = firsttwo + lastthree;
                 String lastName = citytwo + schoolthree;
                 String origin = inputpet + " "+ inputchara;
 

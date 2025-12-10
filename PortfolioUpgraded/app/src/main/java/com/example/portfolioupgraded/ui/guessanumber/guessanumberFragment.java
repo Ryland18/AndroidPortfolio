@@ -38,14 +38,14 @@ public class guessanumberFragment extends Fragment {
         final int[] points = {0};
         final int[] guesses = {10};
         //ai to help convert a text from edit text into a int and to check if they put a number in
-        boolean ok = false;
+        boolean ok = true;
         int guess = 0;
 
         while(ok){
         String lettnumbers = editText.getText().toString();
         try{
             guess = Integer.parseInt(lettnumbers);
-            ok = true;
+            ok = false;
 
         }
         catch (NumberFormatException e){
@@ -84,7 +84,7 @@ public class guessanumberFragment extends Fragment {
                         }
                     }
                     else{
-                        if(points[0]==0) {
+                        if(guesses[0]==0) {
 
 
                             textView.setText("Game Over, You guessed wrong");
