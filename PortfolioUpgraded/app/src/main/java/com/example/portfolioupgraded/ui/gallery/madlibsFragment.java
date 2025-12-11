@@ -70,7 +70,7 @@ public class madlibsFragment extends Fragment {
                 String eightT = eight.getText().toString();
 
                 textView.setVisibility(VISIBLE);
-                textView.setText("In a "+ firstT+ "with many fine variatys of "+secondT+ " although it was missing a couple of "+thirdT+" as well as a few "+fourthT + " however it is still a +"+fifthT+ " with very friendly +"+sixthT+ " as long as you follow the rule of +"+seventhT+" which is to always say "+eightT);
+                textView.setText("In a "+ firstT+ " with many fine variatys of "+secondT+ " although it was missing a couple of "+thirdT+" as well as a few "+fourthT + " however it is still a "+fifthT+ " with very friendly "+sixthT+ " as long as you follow the rule of "+seventhT+" which is to always say "+eightT);
 
 
                 reset.setVisibility(VISIBLE);

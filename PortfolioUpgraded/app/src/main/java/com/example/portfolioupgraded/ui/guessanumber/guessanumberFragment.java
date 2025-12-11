@@ -38,7 +38,7 @@ public class guessanumberFragment extends Fragment {
         final int[] points = {0};
         final int[] guesses = {10};
         //ai to help convert a text from edit text into a int and to check if they put a number in
-        final boolean[] ok = {false};
+        final boolean[] ok = {true};
         final int[] guess = {0};
 
 
@@ -47,32 +47,25 @@ public class guessanumberFragment extends Fragment {
         //ai to assist in importing and using random to gen between 0 and 100
         Random random = new Random();
         final int[] number = {random.nextInt(101)};
-        int finalGuess = guess[0];
+        final int[] finalGuess = {0};
         button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
-                    while(ok[0]){
                         String lettnumbers = editText.getText().toString();
                         try{
                             guess[0] = Integer.parseInt(lettnumbers);
-                            ok[0] = true;
-
-                        }
-                        catch (NumberFormatException e){
-                            textView.setText("Invalid number try again");
-                            editText.setText("");
-                        }
-                    }
 
                     if (!(guesses[0] ==0)){
-                        if (number[0] > finalGuess){
-                            textView.setText("You are too low");
+                        finalGuess[0] = guess[0];
+                        if (number[0] > finalGuess[0]){
+                            textView.setText("You are too low you have "+guesses[0]+" guesses left");
                             //ai for subtracting when it had errors for subtraction
                             guesses[0]--;
-                        } else if (number[0] <finalGuess) {
-                            textView.setText("You are too high");
+                        } else if (number[0] < finalGuess[0]) {
+
                             guesses[0]--;
+                            textView.setText("You are too high you have "+guesses[0]+" guesses left");
                         }
                         else {
                             textView.setText("congradulations you got it, now try again with a diffrent number");
@@ -84,7 +77,7 @@ public class guessanumberFragment extends Fragment {
                             score.setText(points[0]);
 
                         }
-                    }
+                    } 
                     else{
                         if(points[0]==0) {
 
@@ -97,6 +90,11 @@ public class guessanumberFragment extends Fragment {
                             button.setEnabled(false);
                         }
                     }
+                        }
+                        catch (NumberFormatException e){
+                            textView.setText("Invalid number try again");
+                            editText.setText("");
+                        }
 
 
                 }

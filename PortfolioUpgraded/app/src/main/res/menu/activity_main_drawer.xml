@@ -6,18 +6,19 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/twotone_blinds_24"
             android:title="@string/menu_home" />
         <item
             android:id="@+id/nav_madlibs"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/madlib_symbol"
             android:title="@string/menu_madlib" />
         <item
             android:id="@+id/nav_scifiname"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/outline_add_comment_24"
             android:title="@string/menu_scifiname" />
         <item
             android:id="@+id/nav_guessanumber"
+            android:icon="@drawable/outline_confirmation_number_24"
             android:title="@string/menu_guessanumber"
 
             />
