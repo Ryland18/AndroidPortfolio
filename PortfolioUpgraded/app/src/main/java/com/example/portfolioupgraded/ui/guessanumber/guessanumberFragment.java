@@ -79,11 +79,13 @@ public class guessanumberFragment extends Fragment {
                         }
                     }
                     else{
+
                         if(points[0]==0) {
 
                             textView.setText("Game Over, You guessed wrong");
                             //ai for learning on how to shut off the button
                             button.setEnabled(false);
+
                         }
                         else {
                             textView.setText("Game Over, You guessed wrong. But you have a score of "+points[0]);
