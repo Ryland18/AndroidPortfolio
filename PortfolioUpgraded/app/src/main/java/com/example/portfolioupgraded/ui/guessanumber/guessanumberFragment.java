@@ -74,10 +74,10 @@ public class guessanumberFragment extends Fragment {
                             points[0]+= extras;
                             guesses[0] = 10;
                             number[0] = random.nextInt(101);
-                            score.setText(points[0]);
+                            score.setText(String.valueOf(points[0]));
 
                         }
-                    } 
+                    }
                     else{
                         if(points[0]==0) {
 
