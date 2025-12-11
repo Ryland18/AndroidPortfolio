@@ -12,6 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PortfolioUpgraded">
         <activity
+            android:name=".CreditsActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"
+            android:label="@string/action_Credits" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"

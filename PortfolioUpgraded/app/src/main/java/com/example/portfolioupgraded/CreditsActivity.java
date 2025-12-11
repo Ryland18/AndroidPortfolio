@@ -12,7 +12,7 @@ public class CreditsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.creditsfragment);
+        setContentView(R.layout.credits_activity);
         if (savedInstanceState == null) {
             getSupportFragmentManager()
                     .beginTransaction()
@@ -27,9 +27,8 @@ public class CreditsActivity extends AppCompatActivity {
     public static class CreditsFragment extends PreferenceFragmentCompat {
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-            setPreferencesFromResource(R.xml.root_preferences, rootKey);
+            setPreferencesFromResource(R.xml.backup_rules, rootKey);
         }
     }
 }
 
-}
