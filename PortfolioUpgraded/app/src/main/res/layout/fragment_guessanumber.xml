@@ -5,7 +5,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.guessanumber.guessanumberFragment">
+    tools:context=".ui.guessanumber.guessanumberFragment"
+
+    >
+
+
 
     <Button
         android:id="@+id/button"
@@ -17,7 +21,10 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.597" />
+        app:layout_constraintVertical_bias="0.597"
+        android:background="@color/lime"
+
+        />
 
     <EditText
         android:id="@+id/editTextText"
@@ -31,7 +38,14 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5"
-        app:layout_constraintVertical_bias="0.237" />
+        app:layout_constraintVertical_bias="0.237"
+
+
+
+
+
+
+        />
 
     <TextView
         android:id="@+id/textView3"
