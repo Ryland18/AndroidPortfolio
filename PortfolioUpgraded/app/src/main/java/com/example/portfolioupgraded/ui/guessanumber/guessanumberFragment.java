@@ -38,30 +38,32 @@ public class guessanumberFragment extends Fragment {
         final int[] points = {0};
         final int[] guesses = {10};
         //ai to help convert a text from edit text into a int and to check if they put a number in
-        boolean ok = true;
-        int guess = 0;
+        final boolean[] ok = {false};
+        final int[] guess = {0};
 
-        while(ok){
-        String lettnumbers = editText.getText().toString();
-        try{
-            guess = Integer.parseInt(lettnumbers);
-            ok = false;
 
-        }
-        catch (NumberFormatException e){
-            textView.setText("Invalid number try again");
-            editText.setText("");
-        }
-        }
 
 
         //ai to assist in importing and using random to gen between 0 and 100
         Random random = new Random();
         final int[] number = {random.nextInt(101)};
-        int finalGuess = guess;
+        int finalGuess = guess[0];
         button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
+                    while(ok[0]){
+                        String lettnumbers = editText.getText().toString();
+                        try{
+                            guess[0] = Integer.parseInt(lettnumbers);
+                            ok[0] = true;
+
+                        }
+                        catch (NumberFormatException e){
+                            textView.setText("Invalid number try again");
+                            editText.setText("");
+                        }
+                    }
 
                     if (!(guesses[0] ==0)){
                         if (number[0] > finalGuess){
@@ -84,8 +86,7 @@ public class guessanumberFragment extends Fragment {
                         }
                     }
                     else{
-                        if(guesses[0]==0) {
-
+                        if(points[0]==0) {
 
                             textView.setText("Game Over, You guessed wrong");
                             //ai for learning on how to shut off the button

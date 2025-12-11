@@ -30,8 +30,7 @@ public class madlibsFragment extends Fragment {
         View root = binding.getRoot();
 
         final TextView textView = binding.textGallery;
-        galleryViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-
+        
         EditText first = binding.FirstText;
         EditText second = binding.SecondText;
         EditText third = binding.ThirdText;
