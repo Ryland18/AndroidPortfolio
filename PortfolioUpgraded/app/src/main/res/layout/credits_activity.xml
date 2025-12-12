@@ -1,12 +1,50 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cyan"
+    android:orientation="vertical">
 
-
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <TextView
+        android:id="@+id/textView9"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:background="@color/red"
+        android:text="Made by Ryland Martz"
+        android:textAlignment="center"
+        android:textColor="@color/lime"
+        android:textSize="34sp"
+        tools:ignore="TextContrastCheck" />
 
-        <FrameLayout
-            android:id="@+id/credits"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blue"
+        android:text="Sources"
+        android:textAlignment="center"
+        android:textColor="@color/lime"
+        android:textSize="34sp" />
 
-    </LinearLayout>
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="match_parent"
+        android:layout_height="153dp"
+        android:text=" https://www.linkedin.com/in/ryland-martz-845161388/ ---- profile image \n \n Chatgpt - helped make the gradient of some buttons to show \n\n other Ai like copiolet or google ai --- help with making button show visable but unable to press or click" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blue"
+        android:text="How to play all"
+        android:textAlignment="center"
+        android:textColor="@color/lime"
+        android:textSize="34sp" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="match_parent"
+        android:layout_height="380dp"
+        android:text=" Scifi Name Genorater: \n\t\t\t\t\t\t\t you enter all the info the app request (or random stuff you want to enter in),then press the generate button to generate your scifi name \n\n GAN (guess a number): \n \t\t\t\t\t\ when you start the activity you start with 10 guesses. the number you must guess is randomly generated from 1-100. if you guess wrong you will be given a message that states if it was too high or too low and you will lose one guess in the process. if you lose all guesses the screen will stop and state you lost, if you wish to play again you must refresh the screen by going to any page then back. if you win you will gain points as well as bonus points from the remaining amount of guesses you have and the loop resets without freezing with a new number to guess and your guesses reset back to 10. \n\n Madlib: \n\n\t\t\t\t when you start you must enter 8 words (dosent matter what) then you press the submit button to generate a sentence that will contain the words you submited in (the sentence will be the same without the words but you can make it as wonky as possible)." />
+</LinearLayout>
