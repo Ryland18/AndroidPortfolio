@@ -61,7 +61,7 @@ public class scifinameFragment extends Fragment {
                 String origin = inputpet + " "+ inputchara;
 
 
-                textView.setText( firstName + " "+ lastName + " from the planet "+ origin);
+                textView.setText( firstName + " "+ lastName + " from the planet "+ origin+"!");
 
 
 
