@@ -42,13 +42,15 @@ public class madlibsFragment extends Fragment {
 
 
 
-        Button submit = binding.button3;
+        Button storie1 = binding.storie1;
+        Button storie2 = binding.storie2;
+        Button storie3 = binding.storie3;
         Button reset = binding.button4;
 
 
 
 
-        submit.setOnClickListener(new View.OnClickListener() {
+        storie1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 first.setVisibility(GONE);
@@ -74,10 +76,82 @@ public class madlibsFragment extends Fragment {
 
 
                 reset.setVisibility(VISIBLE);
-                submit.setVisibility(GONE);
+                storie1.setVisibility(GONE);
+                storie2.setVisibility(GONE);
+                storie3.setVisibility(GONE);
 
             }
         });
+
+
+        storie2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                first.setVisibility(GONE);
+                second.setVisibility(GONE);
+                third.setVisibility(GONE);
+                fourth.setVisibility(GONE);
+                fifth.setVisibility(GONE);
+                sixth.setVisibility(GONE);
+                seventh.setVisibility(GONE);
+                eight.setVisibility(GONE);
+
+                String firstT = first.getText().toString();
+                String secondT = second.getText().toString();
+                String thirdT = third.getText().toString();
+                String fourthT = fourth.getText().toString();
+                String fifthT = fifth.getText().toString();
+                String sixthT = sixth.getText().toString();
+                String seventhT = seventh.getText().toString();
+                String eightT = eight.getText().toString();
+
+                textView.setVisibility(VISIBLE);
+                textView.setText("Time to go "+ firstT+ " with a boat load of "+secondT+ " it might also be a good idea to bring "+thirdT+" and some tasty "+fourthT + " for its going to be a long "+fifthT+ " with huge amounts of "+sixthT+ " so your going to need "+seventhT+" but at least you will get a lot of "+eightT);
+
+
+                reset.setVisibility(VISIBLE);
+                storie1.setVisibility(GONE);
+                storie2.setVisibility(GONE);
+                storie3.setVisibility(GONE);
+
+            }
+        });
+
+
+        storie3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                first.setVisibility(GONE);
+                second.setVisibility(GONE);
+                third.setVisibility(GONE);
+                fourth.setVisibility(GONE);
+                fifth.setVisibility(GONE);
+                sixth.setVisibility(GONE);
+                seventh.setVisibility(GONE);
+                eight.setVisibility(GONE);
+
+                String firstT = first.getText().toString();
+                String secondT = second.getText().toString();
+                String thirdT = third.getText().toString();
+                String fourthT = fourth.getText().toString();
+                String fifthT = fifth.getText().toString();
+                String sixthT = sixth.getText().toString();
+                String seventhT = seventh.getText().toString();
+                String eightT = eight.getText().toString();
+
+                textView.setVisibility(VISIBLE);
+                textView.setText("It almost seems that today it is going to be "+ firstT+ " for the sky is full of "+secondT+ " luckly it is not "+thirdT+" otherwise we would have "+fourthT + " and a possibility of "+fifthT+ " but it dosent look like it is "+sixthT+ " hopefuly that is the "+seventhT+" that way you can "+eightT);
+
+
+                reset.setVisibility(VISIBLE);
+                storie1.setVisibility(GONE);
+                storie2.setVisibility(GONE);
+                storie3.setVisibility(GONE);
+
+            }
+        });
+
+
 
 
         reset.setOnClickListener(new View.OnClickListener() {
@@ -105,7 +179,10 @@ public class madlibsFragment extends Fragment {
 
                 textView.setVisibility(GONE);
 
-                submit.setVisibility(VISIBLE);
+                storie1.setVisibility(VISIBLE);
+                storie2.setVisibility(VISIBLE);
+                storie3.setVisibility(VISIBLE);
+
                 reset.setVisibility(GONE);
 
             }

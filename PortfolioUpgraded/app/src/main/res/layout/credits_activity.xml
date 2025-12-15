@@ -33,7 +33,7 @@
         android:layout_width="match_parent"
         android:layout_height="153dp"
         android:fontFamily="sans-serif-light"
-        android:text=" https://www.linkedin.com/in/ryland-martz-845161388/ ---- profile image \n \n Chatgpt - helped make the gradient of some buttons to show \n\n other Ai like copiolet or google ai --- help with making button show visable but unable to press or click" />
+        android:text=" https://www.linkedin.com/in/ryland-martz-845161388/ ---- profile image \n \n Chatgpt - helped make the gradient of some buttons to show \n\n other Ai like copiolet or google ai --- help with making button show visable but unable to press or click \n\n Landen - helped my image of my portfilio show up" />
 
     <TextView
         android:id="@+id/textView12"
