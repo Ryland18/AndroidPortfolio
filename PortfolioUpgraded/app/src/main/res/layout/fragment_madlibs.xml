@@ -14,6 +14,7 @@
         android:fontFamily="cursive"
         android:textAlignment="center"
         android:textSize="24sp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -27,10 +28,11 @@
         android:fontFamily="monospace"
         android:text="Storie 2"
         app:layout_constraintBottom_toTopOf="@+id/text_gallery"
+        app:layout_constraintEnd_toStartOf="@+id/storie3"
+        app:layout_constraintStart_toEndOf="@+id/storie2"
         app:layout_constraintTop_toBottomOf="@+id/FifthText"
         app:layout_constraintVertical_bias="0.666"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="161dp" />
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/storie2"
