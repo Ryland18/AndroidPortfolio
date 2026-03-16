@@ -1,4 +1,4 @@
-package com.example.portfolioupgraded.ui.slideshow;
+package com.example.portfolioupgraded.ui.scifiname;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

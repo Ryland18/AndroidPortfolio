@@ -1,4 +1,4 @@
-package com.example.portfolioupgraded.ui.slideshow;
+package com.example.portfolioupgraded.ui.scifiname;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

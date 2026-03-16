@@ -13,13 +13,13 @@
 
     <fragment
         android:id="@+id/nav_madlibs"
-        android:name="com.example.portfolioupgraded.ui.gallery.madlibsFragment"
+        android:name="com.example.portfolioupgraded.ui.madlib.madlibsFragment"
         android:label="@string/menu_madlib"
         tools:layout="@layout/fragment_madlibs" />
 
     <fragment
         android:id="@+id/nav_scifiname"
-        android:name="com.example.portfolioupgraded.ui.slideshow.scifinameFragment"
+        android:name="com.example.portfolioupgraded.ui.scifiname.scifinameFragment"
         android:label="@string/menu_scifiname"
         tools:layout="@layout/fragment_scifiname" />
     <fragment

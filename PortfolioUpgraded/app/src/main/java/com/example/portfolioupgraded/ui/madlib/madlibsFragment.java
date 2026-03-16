@@ -1,4 +1,4 @@
-package com.example.portfolioupgraded.ui.gallery;
+package com.example.portfolioupgraded.ui.madlib;
 
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;

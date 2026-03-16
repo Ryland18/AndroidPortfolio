@@ -1,4 +1,4 @@
-package com.example.portfolioupgraded.ui.gallery;
+package com.example.portfolioupgraded.ui.madlib;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
