@@ -20,7 +20,14 @@
             android:id="@+id/nav_guessanumber"
             android:icon="@drawable/outline_confirmation_number_24"
             android:title="@string/menu_guessanumber"
-
             />
+
+
+        <item android:id="@+id/nav_pokemon"
+    android:title="Favorite Pokemon"/>
+
+        <item
+            android:id="@+id/nav_doodle"
+            android:title="Doodling"/>
     </group>
 </menu>
