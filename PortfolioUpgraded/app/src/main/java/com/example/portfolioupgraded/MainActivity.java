@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_madlibs, R.id.nav_scifiname,R.id.nav_guessanumber)
+                R.id.nav_home, R.id.nav_madlibs, R.id.nav_scifiname,R.id.nav_guessanumber,R.id.nav_pokemon,R.id.nav_doodle)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
@@ -65,12 +65,16 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_Credits){
-            Log.d("OptionsMenu","Settings menu clicked!");
+            Log.d("OptionsMenu","Credits menu clicked!");
             Intent i = new Intent(MainActivity.this,CreditsActivity.class);
             startActivity(i);
             return true;
+        } else if (id == R.id.action_Settings) {
+            Log.d("OptionsMenu","Settings menu clicked!");
+            Intent i = new Intent(MainActivity.this, SettingsActivity.class);
+            startActivity(i);
+            return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 

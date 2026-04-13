@@ -24,10 +24,12 @@
 
 
         <item android:id="@+id/nav_pokemon"
-    android:title="Favorite Pokemon"/>
+    android:title="Favorite Pokemon"
+            android:icon="@drawable/twotone_auto_mode_24"/>
 
         <item
             android:id="@+id/nav_doodle"
-            android:title="Doodling"/>
+            android:title="Doodling"
+            android:icon="@drawable/twotone_auto_fix_high_24"/>
     </group>
 </menu>
