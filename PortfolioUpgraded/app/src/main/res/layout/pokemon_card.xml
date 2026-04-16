@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="4dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="475dp"
+        android:background="#F8D030"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:id="@+id/top_left_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/pokemonStageTextView"
+                android:layout_width="67dp"
+                android:layout_height="wrap_content"
+                android:text="PreEvolution:"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/pokemonStageImageView"
+                android:layout_width="match_parent"
+                android:layout_height="27dp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/pokemonNameTextView"
+            android:layout_width="143dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="4dp"
+            android:layout_toEndOf="@id/top_left_container"
+            android:gravity="center_horizontal"
+            android:text="\t\tPokemon Name\n"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/pokemonImageView"
+            android:layout_width="211dp"
+            android:layout_height="70dp"
+            android:layout_below="@id/pokemonNameTextView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            android:src="@drawable/ic_launcher_background" />
+
+        <LinearLayout
+            android:id="@+id/top_right_container"
+            android:layout_width="129dp"
+            android:layout_height="58dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="3dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/pokemonHPTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="100"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/pokemonTypeImageView"
+                android:layout_width="91dp"
+                android:layout_height="wrap_content"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/pokemonStatsLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/pokemonImageView"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/pokemonIdTXT"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="Illus. Mitsuhiro Arita  © 1995, 96, 98 Nintendo, Creatures, GAMEFREAK."
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/pokemonDescriptionTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pokemon Description"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/pokemonLengthTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Length: 1.0 m"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/pokemonWeightTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Weight: 10.0 kg"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/movesLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/pokemonStatsLayout"
+            android:layout_marginTop="0dp"
+            android:text="Moves:"
+            android:textSize="15sp" />
+
+        <LinearLayout
+            android:id="@+id/movesContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/movesLabel"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/pokemonMove1TextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Move 1"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/pokemonMove1PowerTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/black" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/pokemonMove2TextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Move 2"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/pokemonMove2PowerTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="20"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/black" />
+
+        <LinearLayout
+            android:id="@+id/weaknessResistanceLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/movesContainer"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Weakness"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/pokemonWeaknessTextView"
+                    android:layout_width="88dp"
+                    android:layout_height="wrap_content"
+                    android:text="Fire"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Resistance"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/pokemonResistanceTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Water"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/copyrightTextView"
+            android:layout_width="347dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/weaknessResistanceLayout"
+            android:layout_marginTop="7dp"
+            android:gravity="center_horizontal"
+            android:text="Illus. Mitsuhiro Arita  © 1995, 96, 98 Nintendo, Creatures, GAMEFREAK."
+            android:textSize="10sp" />
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
