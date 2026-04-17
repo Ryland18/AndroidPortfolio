@@ -18,6 +18,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.bumptech.glide.Glide;
 import com.example.portfolioupgraded.R;
 import com.example.portfolioupgraded.databinding.FragmentMadlibsBinding;
 import com.example.portfolioupgraded.databinding.FragmentPokemonBinding;
@@ -41,6 +42,8 @@ public class PokemonFragment extends Fragment {
     private HashSet<JsonObjectRequest> requestQueue;
     private CardAdapter adapter;
 
+    private String spriteName = "";
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         madlibsViewModel galleryViewModel =
@@ -57,7 +60,9 @@ public class PokemonFragment extends Fragment {
 
         adapter = new CardAdapter(thePokemonList);
         viewPager.setAdapter(adapter);
-        loadPokemon();
+
+
+        loadPokemon1();
 
 
         setupDots(adapter.getItemCount());
@@ -73,9 +78,9 @@ public class PokemonFragment extends Fragment {
         return root;
     }
 
-    public void loadPokemon(){
+    public void loadPokemon1(){
         //the URL to request
-        String url = "https://pokeapi.co/api/v2/pokemon?limit=151";
+        String url = "https://pokeapi.co/api/v2/pokemon/1007";
         //set up request for jasons
         //new request(web method, url ,anyListeners , mehtods to happen after data pull, what to do if errors)
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
@@ -83,15 +88,55 @@ public class PokemonFragment extends Fragment {
             public void onResponse(JSONObject jsonObject) {
                 // if we get a 200 response code - http response code
                 try{
-                    //put into a JSONArray
-                    JSONArray results = jsonObject.getJSONArray("results");
-                    //loop through array and get the name and url of each pokemon
-                    for (int i=0; i<results.length();i++){
-                        JSONObject data = results.getJSONObject(i); // converts each data item into a jason object
-                        String name = data.getString("name"); // name and url are the data keywords
-                        String url = data.getString("url");
-                        thePokemonList.add(new Pokemon(name,url)); // add the pokemon to the list
+                    //from chatgpt in assistig with grabbing only one pokemon
+                    int id = jsonObject.getInt("id");
+                    String name = jsonObject.getString("name"); // name and url are the data keywords
+
+                    int hp = jsonObject.getJSONArray("stats").getJSONObject(0).getInt("base_stat");
+                    double length = jsonObject.getDouble("height");
+                    double weight = jsonObject.getDouble("weight");
+                    String preEvolution = "none";
+
+
+                    JSONArray typesD = jsonObject.getJSONArray("types");
+                    ArrayList<String> weakness = new ArrayList<>();
+                    ArrayList<String> resistance = new ArrayList<>();
+                    ArrayList<String> type = new ArrayList<>();
+                    for (int t = 0; t<typesD.length();t++){
+                        JSONObject typeEntry = typesD.getJSONObject(t);
+                        JSONObject typeData = typeEntry.getJSONObject("type");
+                        String typeName = typeData.getString("name");
+                        String typeurl = typeData.getString("url");
+                        type.add(typeName);
+
                     }
+
+
+                    // add the pokemon to the list
+                    JSONArray moveList = jsonObject.getJSONArray("moves");
+                    ArrayList<String> moveBook = new ArrayList<>();
+                    for (int p=0;p<moveList.length();p++){
+                        JSONObject moveEntry = moveList.getJSONObject(p);
+                        JSONObject moveData = moveEntry.getJSONObject("move");
+                        String moveName = moveData.getString("name");
+                        moveBook.add(moveName);
+                        }
+
+                    JSONObject spriteList = jsonObject.getJSONObject("sprites");
+
+
+                    spriteName = spriteList.getString("front_default");
+
+                   // Log.d("loadDetails",String.valueOf(spriteName));
+                   // //from https://www.youtube.com/watch?v=9_Tf3NSD2-M
+                   // Glide.
+                   //         with(pokemon_card.this).
+                   //         load(spriteName).
+                   //         into(mainImage);
+
+                    thePokemonList.add(new Pokemon(id,name));
+                        Log.d("loadDetails",String.valueOf(moveBook));
+
                     adapter.notifyDataSetChanged();
                 }
                 catch (JSONException e){
@@ -107,10 +152,9 @@ public class PokemonFragment extends Fragment {
         //add the request to the queue
         requestQueue.add(request);
         /////add request to the queue
-
-
-
     }
+
+
 
 
     @SuppressLint("UseCompatLoadingForDrawables")
