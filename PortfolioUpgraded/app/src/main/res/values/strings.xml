@@ -11,5 +11,6 @@
     <string name="menu_madlib">Madlib</string>
     <string name="menu_scifiname">Sifi name</string>
     <string name="menu_guessanumber">Guess a number</string>
+    <string name="eraser">Eraser</string>
 
 </resources>

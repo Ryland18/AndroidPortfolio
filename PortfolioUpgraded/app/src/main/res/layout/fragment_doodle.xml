@@ -1,6 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawingfragment"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp">
+
+        <!--suppress AndroidUnresolvableTag -->
+        <com.example.drawing.DrawingView
+            android:id="@+id/drawView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:ignore="MissingClass" />
+
+        <ImageButton
+            android:id="@+id/eraser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="336dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="651dp"
+            android:background="@drawable/pngimg_com___eraser_png24"
+            android:scaleType="fitXY"
+            android:contentDescription="@string/eraser"
+            app:srcCompat="@drawable/pngimg_com___eraser_png24" />
+        <androidx.cardview.widget.CardView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:cardCornerRadius="20dp"
+            android:layout_margin="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#65656C"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="14dp"
+                        android:text="Brush size"
+                        android:textSize="10sp"
+                        android:textColor="@color/white"
+                        android:gravity="center"/>
+                    <EditText
+                        android:id="@+id/brush_sizeBTN"
+                        android:layout_width="match_parent"
+                        android:layout_height="16dp"
+                        android:hint="5"
+                        android:textColorHint="#939393"
+                        android:textSize="14sp"
+                        android:textColor="@color/white"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:background="@android:drawable/button_onoff_indicator_on"
+                        android:backgroundTint="@color/black"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="14dp"
+                        android:text="Paint color"
+                        android:textSize="10sp"
+                        android:textColor="@color/white"
+                        android:gravity="center"/>
+                    <EditText
+                        android:id="@+id/paint_colorBTN"
+                        android:layout_width="match_parent"
+                        android:layout_height="16dp"
+                        android:hint="hex code"
+                        android:textColorHint="#939393"
+                        android:textSize="14sp"
+                        android:textColor="@color/white"
+                        android:gravity="center"
+                        android:inputType="text"
+                        android:background="@android:drawable/button_onoff_indicator_on"
+                        android:backgroundTint="@color/black"/>
+
+                </LinearLayout>
+                <Button
+                    android:id="@+id/brush_updateBTN"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:backgroundTint="@color/black"
+                    android:gravity="center"
+                    android:textSize="11sp"
+                    android:text="Set Brush"/>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

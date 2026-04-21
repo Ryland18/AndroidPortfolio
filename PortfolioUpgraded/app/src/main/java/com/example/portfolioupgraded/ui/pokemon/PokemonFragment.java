@@ -102,14 +102,18 @@ public class PokemonFragment extends Fragment {
                     ArrayList<String> weakness = new ArrayList<>();
                     ArrayList<String> resistance = new ArrayList<>();
                     ArrayList<String> type = new ArrayList<>();
+                    ArrayList<String> typeurList = new ArrayList<>();
                     for (int t = 0; t<typesD.length();t++){
                         JSONObject typeEntry = typesD.getJSONObject(t);
                         JSONObject typeData = typeEntry.getJSONObject("type");
                         String typeName = typeData.getString("name");
                         String typeurl = typeData.getString("url");
                         type.add(typeName);
+                        typeurList.add(typeurl);
 
                     }
+
+
 
 
                     // add the pokemon to the list
@@ -138,6 +142,65 @@ public class PokemonFragment extends Fragment {
                         Log.d("loadDetails",String.valueOf(moveBook));
 
                     adapter.notifyDataSetChanged();
+                }
+                catch (JSONException e){
+                    Log.e("Adapter LoadPokemon","Json error",e);
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+                Log.e("Adapter LoadPokemon", "PokeApi " + volleyError);
+            }
+        });
+        //add the request to the queue
+        requestQueue.add(request);
+        /////add request to the queue
+    }
+
+
+
+
+
+    public void WeakResistance(String urls){
+        //the URL to request
+        //set up request for jasons
+        //new request(web method, url ,anyListeners , mehtods to happen after data pull, what to do if errors)
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject jsonObject) {
+                // if we get a 200 response code - http response code
+                try{
+                    //from chatgpt in assistig with grabbing only one pokemon
+
+                    ///Resistance
+
+
+                    JSONArray resistList = jsonObject.getJSONArray("moves");
+                    ArrayList<String> resistBook = new ArrayList<>();
+                    for (int p=0;p<resistList.length();p++){
+                        JSONObject resistEntry = resistList.getJSONObject(p);
+                        JSONObject resistData = resistEntry.getJSONObject("move");
+                        String resistName = resistData.getString("name");
+                        resistBook.add(resistName);
+                    }
+
+
+                    /////weakness
+
+                    JSONArray weakList = jsonObject.getJSONArray("moves");
+                    ArrayList<String> weakBook = new ArrayList<>();
+                    for (int p=0;p<weakList.length();p++){
+                        JSONObject weakEntry = weakList.getJSONObject(p);
+                        JSONObject weakData = weakEntry.getJSONObject("move");
+                        String weakName = weakData.getString("name");
+                        weakBook.add(weakName);
+                    }
+
+                    adapter.notifyDataSetChanged();
+
+
+
                 }
                 catch (JSONException e){
                     Log.e("Adapter LoadPokemon","Json error",e);
