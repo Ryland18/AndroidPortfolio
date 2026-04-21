@@ -1,5 +1,5 @@
 package com.example.portfolioupgraded.ui.doodle;
-
+/*
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -104,3 +104,4 @@ public class drawing extends View {
         return true;
     }
 }
+ */

@@ -26,7 +26,7 @@ public class Pokemon {
         this.resistance = resistance;
     }
 
-    public Pokemon(String name,String url) {
+    public Pokemon(int id, String name, int hp, String url, double length, double weight, String preEvolution, Object o, Object object, int i, int i1, String weakness, String resistance) {
         this.url = url;
         this.name = name;
     }

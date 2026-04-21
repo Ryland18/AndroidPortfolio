@@ -1,5 +1,5 @@
 package com.example.portfolioupgraded.ui.doodle;
-
+/*
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -29,11 +29,11 @@ public class doodleFragment  extends Fragment {
         private drawing paper;
         private Button update;
         private EditText size, color;
-    private @NonNull FragmentDoodleBinding binding;
+ //   private @NonNull FragmentDoodleBinding binding;
 
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
+   /* @Override
+  /*  public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.fragment_doodle);
@@ -71,3 +71,8 @@ public class doodleFragment  extends Fragment {
     }
 }
 
+*\
+
+
+
+ */

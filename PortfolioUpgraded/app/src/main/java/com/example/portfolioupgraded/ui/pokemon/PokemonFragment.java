@@ -99,8 +99,8 @@ public class PokemonFragment extends Fragment {
 
 
                     JSONArray typesD = jsonObject.getJSONArray("types");
-                    ArrayList<String> weakness = new ArrayList<>();
-                    ArrayList<String> resistance = new ArrayList<>();
+                    final String[] resistances = {""};
+                    final String[] weaknesses = {""};
                     ArrayList<String> type = new ArrayList<>();
                     ArrayList<String> typeurList = new ArrayList<>();
                     for (int t = 0; t<typesD.length();t++){
@@ -113,6 +113,20 @@ public class PokemonFragment extends Fragment {
 
                     }
 
+                    for (int w = 0; w<typeurList.size(); w++){
+                        getResistance(typeurList.get(w), new ResistanceCallback() {
+                            @Override
+                            public void onSuccess(String resistance) {
+                                resistances[0] +=resistance;
+                            }
+                        });
+                        getWeakness(typeurList.get(w), new ResistanceCallback() {
+                            @Override
+                            public void onSuccess(String weakness) {
+                                weaknesses[0] += weakness;
+                            }
+                        });
+                    }
 
 
 
@@ -138,7 +152,7 @@ public class PokemonFragment extends Fragment {
                    //         load(spriteName).
                    //         into(mainImage);
 
-                    thePokemonList.add(new Pokemon(id,name));
+                    thePokemonList.add(new Pokemon(id,name,hp,type.toString(),length,weight,preEvolution,moveList.get(69),moveList.get(68),100,80,weaknesses[0],resistances[0]));
                         Log.d("loadDetails",String.valueOf(moveBook));
 
                     adapter.notifyDataSetChanged();
@@ -162,11 +176,11 @@ public class PokemonFragment extends Fragment {
 
 
 
-    public void WeakResistance(String urls){
+    public void getWeakness(String urls, ResistanceCallback callback){
         //the URL to request
         //set up request for jasons
         //new request(web method, url ,anyListeners , mehtods to happen after data pull, what to do if errors)
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, urls, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject jsonObject) {
                 // if we get a 200 response code - http response code
@@ -176,22 +190,17 @@ public class PokemonFragment extends Fragment {
                     ///Resistance
 
 
-                    JSONArray resistList = jsonObject.getJSONArray("moves");
-                    ArrayList<String> resistBook = new ArrayList<>();
-                    for (int p=0;p<resistList.length();p++){
-                        JSONObject resistEntry = resistList.getJSONObject(p);
-                        JSONObject resistData = resistEntry.getJSONObject("move");
-                        String resistName = resistData.getString("name");
-                        resistBook.add(resistName);
-                    }
+                    JSONArray resistList = jsonObject.getJSONArray("damage_relations");
+
 
 
                     /////weakness
 
-                    JSONArray weakList = jsonObject.getJSONArray("moves");
+
+                    JSONArray weakObjects = resistList.getJSONArray(1);
                     ArrayList<String> weakBook = new ArrayList<>();
-                    for (int p=0;p<weakList.length();p++){
-                        JSONObject weakEntry = weakList.getJSONObject(p);
+                    for (int p=0;p<weakObjects.length();p++){
+                        JSONObject weakEntry = weakObjects.getJSONObject(p);
                         JSONObject weakData = weakEntry.getJSONObject("move");
                         String weakName = weakData.getString("name");
                         weakBook.add(weakName);
@@ -199,6 +208,8 @@ public class PokemonFragment extends Fragment {
 
                     adapter.notifyDataSetChanged();
 
+                    String weaknesses = weakBook.toString();
+                    callback.onSuccess(weaknesses);
 
 
                 }
@@ -217,7 +228,60 @@ public class PokemonFragment extends Fragment {
         /////add request to the queue
     }
 
+    //from chatgpt on how to return a string for weakness and resistance
+    public interface ResistanceCallback {
+        void onSuccess(String resistance);
+    }
+    public interface WeaknessCallback {
+        void onSuccess(String weakness);
+    }
+    public void getResistance(String urls, ResistanceCallback callback) {
+        //the URL to request
+        //set up request for jasons
+        //new request(web method, url ,anyListeners , mehtods to happen after data pull, what to do if errors)
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, urls, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject jsonObject) {
+                // if we get a 200 response code - http response code
+                try {
+                    //from chatgpt in assistig with grabbing only one pokemon
 
+                    ///Resistance
+
+
+                    JSONArray resistList = jsonObject.getJSONArray("damage_relations");
+                    JSONArray resistObjects = resistList.getJSONArray(3);
+                    ArrayList<String> resistBook = new ArrayList<>();
+                    for (int p = 0; p < resistObjects.length(); p++) {
+                        JSONObject resistEntry = resistObjects.getJSONObject(p);
+                        JSONObject resistData = resistEntry.getJSONObject("move");
+                        String resistName = resistData.getString("name");
+                        resistBook.add(resistName);
+                    }
+
+
+                    /////weakness
+
+
+                    String resistances = resistBook.toString();
+
+                    callback.onSuccess(resistances);
+
+                } catch (JSONException e) {
+                    Log.e("Adapter LoadPokemon", "Json error", e);
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+                Log.e("Adapter LoadPokemon", "PokeApi " + volleyError);
+            }
+        });
+        //add the request to the queue
+        requestQueue.add(request);
+        /////add request to the queue
+
+    }
 
 
     @SuppressLint("UseCompatLoadingForDrawables")
