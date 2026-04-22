@@ -15,9 +15,11 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.example.portfolioupgraded.R;
 import com.example.portfolioupgraded.databinding.FragmentMadlibsBinding;
@@ -39,10 +41,12 @@ public class PokemonFragment extends Fragment {
     private LinearLayout dotsLayout;
     private List<Pokemon> thePokemonList = new ArrayList<>();
     private TextView[] dots;
-    private HashSet<JsonObjectRequest> requestQueue;
+    private RequestQueue requestQueue;
     private CardAdapter adapter;
 
     private String spriteName = "";
+
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -52,6 +56,9 @@ public class PokemonFragment extends Fragment {
         binding = FragmentPokemonBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         // Sample data
+
+
+        requestQueue = Volley.newRequestQueue(getActivity().getApplicationContext());
 
         viewPager = root.findViewById(R.id.viewPager);
         dotsLayout = root.findViewById(R.id.dotsLayout);
@@ -152,7 +159,7 @@ public class PokemonFragment extends Fragment {
                    //         load(spriteName).
                    //         into(mainImage);
 
-                    thePokemonList.add(new Pokemon(id,name,hp,type.toString(),length,weight,preEvolution,moveList.get(69),moveList.get(68),100,80,weaknesses[0],resistances[0]));
+                    thePokemonList.add(new Pokemon(id,name,hp,type.toString(),length,weight,preEvolution,moveList.get(69).toString(),moveList.get(68).toString(),100,80,weaknesses[0],resistances[0]));
                         Log.d("loadDetails",String.valueOf(moveBook));
 
                     adapter.notifyDataSetChanged();

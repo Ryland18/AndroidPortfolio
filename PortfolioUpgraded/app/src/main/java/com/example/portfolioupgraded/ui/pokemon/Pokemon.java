@@ -8,13 +8,12 @@ public class Pokemon {
     //constructors
 
 
-    public Pokemon(int id,String name, int hp,String typing, String description, double length, double weight,String preEvolution, String move1, String move2, int move1dps, int move2dps, String weakness, String resistance) {
+    public Pokemon(int id,String name, int hp,String typing, double length, double weight,String preEvolution, String move1, String move2, int move1dps, int move2dps, String weakness, String resistance) {
 
         this.id = id;
         this.name = name;
         this.hp = hp;
         this.typing = typing;
-        this.description = description;
         this.length = length;
         this.weight = weight;
         this.preEvolution = preEvolution;
@@ -26,10 +25,6 @@ public class Pokemon {
         this.resistance = resistance;
     }
 
-    public Pokemon(int id, String name, int hp, String url, double length, double weight, String preEvolution, Object o, Object object, int i, int i1, String weakness, String resistance) {
-        this.url = url;
-        this.name = name;
-    }
     //getters and setters
 
 
