@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-    <com.google.android.material.textfield.TextInputLayout
+    <EditText
         android:id="@+id/textInputLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
@@ -15,10 +15,13 @@
         android:textColorHint="@color/red"
         app:boxStrokeColor="@color/cyan"
         app:hintTextColor="@color/cyan"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:startIconTint="@color/red"
         tools:ignore="MissingConstraints">
 
-    </com.google.android.material.textfield.TextInputLayout>
+    </EditText>
     <Switch
         android:id="@+id/darkOrLight"
         android:layout_width="wrap_content"
@@ -30,7 +33,8 @@
         android:textColor="@color/lime"
         app:layout_constraintBottom_toTopOf="@+id/newUsername"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
                 <!-- Date Display -->
 
 
@@ -50,7 +54,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <com.google.android.material.textfield.TextInputEditText
+    <EditText
         android:id="@+id/newUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -58,6 +62,7 @@
         android:textColor="@color/lime"
         app:layout_constraintBottom_toTopOf="@+id/savestuff"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
 
 

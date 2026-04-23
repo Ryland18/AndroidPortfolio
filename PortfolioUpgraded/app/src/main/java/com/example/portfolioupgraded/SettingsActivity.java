@@ -2,49 +2,35 @@ package com.example.portfolioupgraded;
 
 
 
-import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.Switch;
 
-import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatDelegate;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-import androidx.preference.PreferenceFragmentCompat;
 
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.portfolioupgraded.databinding.SettingsActivityBinding;
 import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.textfield.TextInputEditText;
 
 public class SettingsActivity extends AppCompatActivity {
-    private TextInputEditText newUsername;
+    private EditText newUsername;
     private Switch darkLightMode;
+
+    private SettingsActivityBinding binding;
     private Button saveBtn;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.settings_activity);
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true);
-
-        }
-
-                EdgeToEdge.enable(this);
-                setContentView(R.layout.settings_activity);
-                ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.action_Settings), (v, insets) -> {
-                    Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-                    v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             ViewGroup container, Bundle savedInstanceState) {
+        binding = com.example.portfolioupgraded.databinding.SettingsActivityBinding.inflate(inflater, container, false);
+        View root = binding.getRoot();
 
                     newUsername = findViewById(R.id.newUsername);
 
@@ -91,9 +77,7 @@ public class SettingsActivity extends AppCompatActivity {
                             // Update password if it passes strength validation
                         }
                     });
-
-                    return insets;});
-
+                return root;
             }
 
             // Apply theme preference from SharedPreferences

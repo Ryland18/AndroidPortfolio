@@ -35,37 +35,38 @@ public class doodleView extends View {
         super(context);
         init();
     }
+
     public doodleView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
     }
 
 
-
-
-    private void init(){
+    private void init() {
         brushSize = getResources().getInteger(R.integer.brush_size);
         drawPath = new Path();
         drawPaint = new Paint();
         drawPaint.setColor(paintColor);
         drawPaint.setAntiAlias(true);
-        drawPaint.setStrokeWidth(brushSize);
+        drawPaint.setStrokeWidth(5);
         drawPaint.setStyle(Paint.Style.STROKE);
         drawPaint.setStrokeJoin(Paint.Join.ROUND);
         drawPaint.setStrokeCap(Paint.Cap.ROUND);
         canvasPaint = new Paint(Paint.DITHER_FLAG);
 
     }
-    public void resize(int size){
+
+    public void resize(int size) {
         drawPaint.setStrokeWidth(size);
     }
-    public void repaint(int size){
+
+    public void repaint(int size) {
         drawPaint.setColor(size);
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
-        canvas.drawBitmap(canvasBitmap, 0 , 0, canvasPaint);
+        canvas.drawBitmap(canvasBitmap, 0, 0, canvasPaint);
         canvas.drawPath(drawPath, drawPaint);
     }
 
@@ -73,7 +74,7 @@ public class doodleView extends View {
     @Override
     protected void onSizeChanged(int w, int h, int prevW, int prevH) {
         //create canvas matching device size
-        super.onSizeChanged(w, h, prevW,prevH);
+        super.onSizeChanged(w, h, prevW, prevH);
 
         //create Bitmap of certain w,h
         canvasBitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
@@ -81,6 +82,7 @@ public class doodleView extends View {
         //apply bitmap to graphic to start drawing.
         drawCanvas = new Canvas(canvasBitmap);
     }
+
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         float touchX = event.getX();
@@ -103,3 +105,6 @@ public class doodleView extends View {
         }
         //redraw
         invalidate();
+        return true;
+    }
+}

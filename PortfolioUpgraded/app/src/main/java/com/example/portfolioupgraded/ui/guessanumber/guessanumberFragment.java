@@ -41,6 +41,8 @@ public class guessanumberFragment extends Fragment {
     private FragmentGuessanumberBinding binding;
     private String username;
 
+    private TextView leaderboard;
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
             guessanumberViewModel guessanumberViewModel =
@@ -49,16 +51,16 @@ public class guessanumberFragment extends Fragment {
         binding = FragmentGuessanumberBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        
-        final TextView textView = binding.textView3;
-        guessanumberViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+
+//        guessanumberViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
 
         guessing = false;
 
         Button button = binding.button;
-        TextView leaderboard = binding.leaderBoard;
-        EditText editText = binding.editTextText;
+        leaderboard = binding.leaderBoard;
+        final EditText editText = binding.editTextText;
         TextView score = binding.textView5;
+        TextView textView = binding.textView3;
         textView.setText("Welcome to the Guess a number game where you guess the number the AI comes up with");
         final int[] points = {0};
         final int[] guesses = {10};
@@ -141,7 +143,7 @@ public class guessanumberFragment extends Fragment {
                     }
                     else {
                         guessing =true;
-                        username= textView.getText().toString();
+                        username= editText.getText().toString();
                     }
                 }
             });
@@ -159,10 +161,13 @@ public class guessanumberFragment extends Fragment {
 
     public void storeUsers(int score){
         // Create a new user with a first and last name
+        Log.d(TAG, "Error location");
         Map<String, Object> user = new HashMap<>();
         user.put("player", username);
         user.put("Score", score);
         user.put("timestamp", FieldValue.serverTimestamp());
+        Log.d(TAG,"Error location "+user);
+
 
 // Add a new document with a generated ID
         db.collection("leaderboard")
@@ -174,8 +179,9 @@ public class guessanumberFragment extends Fragment {
                 .addOnFailureListener(e->{
                     Log.e(TAG, "store UserError ",e );
                 });
+
         db.collection("leaderboard")
-                .orderBy("score", Query.Direction.DESCENDING)
+                .orderBy("Score", Query.Direction.DESCENDING)
                 .limit(10)
                 .get()
                 .addOnSuccessListener(queryDocumentSnapshots -> {
@@ -197,7 +203,7 @@ public class guessanumberFragment extends Fragment {
                         rank++;
                     }
 
-                  //  leaderboard.setText(leaderboardText.toString());
+                   leaderboard.setText(leaderboardText.toString());
 
 
                 });
