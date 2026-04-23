@@ -27,7 +27,9 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
@@ -158,23 +160,50 @@ public class guessanumberFragment extends Fragment {
     public void storeUsers(int score){
         // Create a new user with a first and last name
         Map<String, Object> user = new HashMap<>();
-        user.put(username, score);
+        user.put("player", username);
+        user.put("Score", score);
+        user.put("timestamp", FieldValue.serverTimestamp());
 
 // Add a new document with a generated ID
-        db.collection("users")
-                .add(user)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                    @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
-                    }
+        db.collection("leaderboard")
+                .document(username)
+                .set(user)
+                .addOnSuccessListener(aVoid ->{
+                    Log.d("storing user: ", username);
                 })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.w(TAG, "Error adding document", e);
-                    }
+                .addOnFailureListener(e->{
+                    Log.e(TAG, "store UserError ",e );
                 });
+        db.collection("leaderboard")
+                .orderBy("score", Query.Direction.DESCENDING)
+                .limit(10)
+                .get()
+                .addOnSuccessListener(queryDocumentSnapshots -> {
+                    StringBuilder leaderboardText = new StringBuilder();
+                    int rank = 1;
+
+                    for (QueryDocumentSnapshot doc : queryDocumentSnapshots) {
+                        String name = doc.getString("player");
+                        Long scores = doc.getLong("Score");
+                        Log.d("Leaderboard", name + ": " + scores);
+
+                        leaderboardText.append(rank)
+                                .append(". ")
+                                .append(name)
+                                .append(" - ")
+                                .append(score)
+                                .append("\n");
+
+                        rank++;
+                    }
+
+                  //  leaderboard.setText(leaderboardText.toString());
+
+
+                });
+
+
+
     }
 
 
