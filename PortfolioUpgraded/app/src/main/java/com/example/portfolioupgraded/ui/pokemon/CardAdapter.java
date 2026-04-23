@@ -57,20 +57,19 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
     @Override
         public void onBindViewHolder(ViewHolder holder, int position) {
             Pokemon p = pokemonList.get(position);
-            holder.id.setText(p.getId());
-            holder.type.setText(p.getTyping());
-            holder.hp.setText(p.getHp());
-            holder.move1.setText(p.getMove1());
-            holder.move2.setText(p.getMove2());
-            holder.move1dps.setText(p.getMove1dps());
-            holder.move2dps.setText(p.getMove2dps());
+            holder.id.setText(String.valueOf(p.getId()));
+            holder.type.setText(String.valueOf(p.getTyping()));
+            holder.hp.setText(String.valueOf(p.getHp()));
+            holder.move1.setText(String.valueOf(p.getMove1()));
+            holder.move2.setText(String.valueOf(p.getMove2()));
+            holder.move1dps.setText(String.valueOf(p.getMove1dps()));
+            holder.move2dps.setText(String.valueOf(p.getMove2dps()));
             holder.name.setText(p.getName());
-            holder.length.setText((int) p.getLength());
+            holder.length.setText(String.valueOf((int) p.getLength()));
             holder.weakness.setText(p.getWeakness());
-            holder.weight.setText((int) p.getWeight());
+            holder.weight.setText(String.valueOf((int) p.getWeight()));
             holder.resistance.setText(p.getResistance());
             holder.preEvolutionimg.setText(p.getPreEvolution());
-            holder.description.setText(p.getDescription());
 
     }
 
