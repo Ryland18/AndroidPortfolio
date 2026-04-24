@@ -159,7 +159,7 @@ public class PokemonFragment extends Fragment {
                    //         load(spriteName).
                    //         into(mainImage);
 
-                    thePokemonList.add(new Pokemon(id,name,hp,type.toString(),length,weight,preEvolution,moveList.get(69).toString(),moveList.get(68).toString(),100,80,weaknesses[0],resistances[0]));
+                    thePokemonList.add(new Pokemon(id,name,hp,type.toString(),length,weight,preEvolution,moveBook.get(69),moveBook.get(68),100,80,weaknesses[0],resistances[0]));
                         Log.d("loadDetails",String.valueOf(moveBook));
 
                     adapter.notifyDataSetChanged();
@@ -194,22 +194,13 @@ public class PokemonFragment extends Fragment {
                 try{
                     //from chatgpt in assistig with grabbing only one pokemon
 
-                    ///Resistance
 
-
-                    JSONArray resistList = jsonObject.getJSONArray("damage_relations");
-
-
-
-                    /////weakness
-
-
-                    JSONArray weakObjects = resistList.getJSONArray(1);
+                    JSONObject resistList = jsonObject.getJSONObject("damage_relations");
+                    JSONArray weakObjects = resistList.getJSONArray("double_damage_from");
                     ArrayList<String> weakBook = new ArrayList<>();
                     for (int p=0;p<weakObjects.length();p++){
                         JSONObject weakEntry = weakObjects.getJSONObject(p);
-                        JSONObject weakData = weakEntry.getJSONObject("move");
-                        String weakName = weakData.getString("name");
+                        String weakName = weakEntry.getString("name");
                         weakBook.add(weakName);
                     }
 
@@ -256,13 +247,12 @@ public class PokemonFragment extends Fragment {
                     ///Resistance
 
 
-                    JSONArray resistList = jsonObject.getJSONArray("damage_relations");
-                    JSONArray resistObjects = resistList.getJSONArray(3);
+                    JSONObject resistList = jsonObject.getJSONObject("damage_relations");
+                    JSONArray resistObjects = resistList.getJSONArray("half_damage_from");
                     ArrayList<String> resistBook = new ArrayList<>();
                     for (int p = 0; p < resistObjects.length(); p++) {
                         JSONObject resistEntry = resistObjects.getJSONObject(p);
-                        JSONObject resistData = resistEntry.getJSONObject("move");
-                        String resistName = resistData.getString("name");
+                        String resistName = resistEntry.getString("name");
                         resistBook.add(resistName);
                     }
 
