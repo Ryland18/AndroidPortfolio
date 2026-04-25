@@ -48,6 +48,7 @@ public class PokemonFragment extends Fragment {
 
 
 
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         madlibsViewModel galleryViewModel =
@@ -124,16 +125,19 @@ public class PokemonFragment extends Fragment {
                         getResistance(typeurList.get(w), new ResistanceCallback() {
                             @Override
                             public void onSuccess(String resistance) {
-                                resistances[0] +=resistance;
+                                resistances[0] += resistance.toString();
+                                Log.d("resistance", resistance.toString());
                             }
                         });
                         getWeakness(typeurList.get(w), new ResistanceCallback() {
                             @Override
                             public void onSuccess(String weakness) {
-                                weaknesses[0] += weakness;
+                                weaknesses[0] += weakness.toString();
                             }
                         });
+
                     }
+
 
 
 
@@ -206,7 +210,8 @@ public class PokemonFragment extends Fragment {
 
                     adapter.notifyDataSetChanged();
 
-                    String weaknesses = weakBook.toString();
+                    String weaknesses = String.join(" ",weakBook);
+                    Log.d("weakness",weaknesses);
                     callback.onSuccess(weaknesses);
 
 
@@ -260,7 +265,7 @@ public class PokemonFragment extends Fragment {
                     /////weakness
 
 
-                    String resistances = resistBook.toString();
+                    String resistances = String.join(" ",resistBook);
 
                     callback.onSuccess(resistances);
 

@@ -95,13 +95,6 @@
                 android:textSize="10sp" />
 
             <TextView
-                android:id="@+id/pokemonDescriptionTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Pokemon Description"
-                android:textSize="10sp" />
-
-            <TextView
                 android:id="@+id/pokemonLengthTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"

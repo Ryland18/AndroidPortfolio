@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.SeekBar;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -31,7 +32,9 @@ public class doodleFragment  extends Fragment {
     private ImageButton erase;
     private doodleView paper;
     private Button update;
-    private EditText size, color;
+    private EditText size;
+    private SeekBar red,blue,green
+
     private FragmentDoodleBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -47,7 +50,9 @@ public class doodleFragment  extends Fragment {
             });
             paper = root.findViewById(R.id.drawView);
             size = root.findViewById(R.id.brush_sizeBTN);
-            color = root.findViewById(R.id.paint_colorBTN);
+            red = root.findViewById(R.id.red);
+            green = root.findViewById(R.id.green);
+            blue = root.findViewById(R.id.blue);
             update = root.findViewById(R.id.brush_updateBTN);
 
             update.setOnClickListener(new View.OnClickListener() {
