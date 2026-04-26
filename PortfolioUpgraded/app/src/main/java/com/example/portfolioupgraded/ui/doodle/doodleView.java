@@ -3,6 +3,8 @@ package com.example.portfolioupgraded.ui.doodle;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.ColorSpace;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.util.AttributeSet;
@@ -60,8 +62,9 @@ public class doodleView extends View {
         drawPaint.setStrokeWidth(size);
     }
 
-    public void repaint(int size) {
-        drawPaint.setColor(size);
+    public void repaint(int progress,int progress1, int progress2) {
+        //copiolet to use rgb values
+        drawPaint.setColor(Color.rgb(progress,progress1,progress2));
     }
 
     @Override

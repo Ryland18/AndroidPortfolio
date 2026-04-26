@@ -43,7 +43,6 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
                  resistance = itemView.findViewById(R.id.pokemonResistanceTextView);
                 image = itemView.findViewById(R.id.pokemonImageView);
                  type = itemView.findViewById(R.id.pokemonTypeImageView);
-                 description = itemView.findViewById(R.id.pokemonDescriptionTextView);
             }
         }
 
@@ -59,6 +58,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
             Pokemon p = pokemonList.get(position);
             holder.id.setText(String.valueOf(p.getId()));
             holder.type.setText(String.valueOf(p.getTyping()));
+
             holder.hp.setText(String.valueOf(p.getHp()));
             holder.move1.setText(String.valueOf(p.getMove1()));
             holder.move2.setText(String.valueOf(p.getMove2()));

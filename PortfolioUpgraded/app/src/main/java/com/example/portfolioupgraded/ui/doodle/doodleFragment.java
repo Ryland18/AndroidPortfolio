@@ -33,7 +33,7 @@ public class doodleFragment  extends Fragment {
     private doodleView paper;
     private Button update;
     private EditText size;
-    private SeekBar red,blue,green
+    private SeekBar red,blue,green;
 
     private FragmentDoodleBinding binding;
 
@@ -63,13 +63,7 @@ public class doodleFragment  extends Fragment {
                     if (!size.getText().toString().equals("")) {
                         paper.resize(Integer.parseInt(String.valueOf(size.getText())));
                     }
-                    try {
-                        if (!color.getText().toString().equals("")) {
-                            paper.repaint(Color.parseColor("#" + color.getText().toString()));
-                        }
-                    } catch (Exception e) {
-                        Log.e("MainActivity/updateOnclickListener", e.getMessage());
-                    }
+                    paper.repaint(red.getProgress(),green.getProgress(),blue.getProgress());
 
                 }
             });
