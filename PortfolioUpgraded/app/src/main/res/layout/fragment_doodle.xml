@@ -34,10 +34,8 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
             android:layout_marginBottom="651dp"
-            android:background="@drawable/pngimg_com___eraser_png24"
             android:scaleType="fitXY"
-            android:contentDescription="@string/eraser"
-            app:srcCompat="@drawable/pngimg_com___eraser_png24" />
+            android:contentDescription="@string/eraser" />
         <androidx.cardview.widget.CardView
             android:layout_width="100dp"
             android:layout_height="140dp"
