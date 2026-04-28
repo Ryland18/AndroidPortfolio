@@ -1,5 +1,6 @@
 package com.example.portfolioupgraded.ui.pokemon;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.portfolioupgraded.R;
 
 import java.util.ArrayList;
@@ -41,7 +43,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
                  weight = itemView.findViewById(R.id.pokemonWeightTextView);
                  weakness = itemView.findViewById(R.id.pokemonWeaknessTextView);
                  resistance = itemView.findViewById(R.id.pokemonResistanceTextView);
-                image = itemView.findViewById(R.id.pokemonImageView);
+                 image = itemView.findViewById(R.id.pokemonImageView);
                  type = itemView.findViewById(R.id.pokemonTypeImageView);
             }
         }
@@ -58,17 +60,20 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
             Pokemon p = pokemonList.get(position);
             holder.id.setText(String.valueOf(p.getId()));
             holder.type.setText(String.valueOf(p.getTyping()));
-
+            Glide.with(holder.itemView.getContext()).load(String.valueOf(p.getSpriteName())).into(holder.image);
+            Log.d("Glide",String.valueOf(p.getSpriteName()));
             holder.hp.setText(String.valueOf(p.getHp()));
             holder.move1.setText(String.valueOf(p.getMove1()));
             holder.move2.setText(String.valueOf(p.getMove2()));
             holder.move1dps.setText(String.valueOf(p.getMove1dps()));
             holder.move2dps.setText(String.valueOf(p.getMove2dps()));
             holder.name.setText(p.getName());
-            holder.length.setText(String.valueOf((int) p.getLength()));
+            holder.length.setText("Feet: "+ String.valueOf((int) p.getLength()));
             holder.weakness.setText(p.getWeakness());
-            holder.weight.setText(String.valueOf((int) p.getWeight()));
+            holder.weight.setText("Pounds: "+String.valueOf((int) p.getWeight()));
+            Log.d("resistance lp1 - Adapter",p.getResistance());
             holder.resistance.setText(p.getResistance());
+
             holder.preEvolutionimg.setText(p.getPreEvolution());
 
     }

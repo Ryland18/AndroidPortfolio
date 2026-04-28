@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.Switch;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatDelegate;
 
 
@@ -27,10 +28,16 @@ public class SettingsActivity extends AppCompatActivity {
 
     private SettingsActivityBinding binding;
     private Button saveBtn;
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        binding = com.example.portfolioupgraded.databinding.SettingsActivityBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.settings_activity);
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+
 
                     newUsername = findViewById(R.id.newUsername);
 
@@ -77,7 +84,7 @@ public class SettingsActivity extends AppCompatActivity {
                             // Update password if it passes strength validation
                         }
                     });
-                return root;
+
             }
 
             // Apply theme preference from SharedPreferences

@@ -1,6 +1,6 @@
 package com.example.portfolioupgraded.ui.pokemon;
 public class Pokemon {
-    private String name, move1, move2, typing, description, preEvolution, weakness, resistance, url;
+    private String name, move1, move2, typing, description, preEvolution, weakness, resistance, url, spriteName;
     private int id, hp, move1dps, move2dps;
 
     private double  length, weight;
@@ -8,10 +8,11 @@ public class Pokemon {
     //constructors
 
 
-    public Pokemon(int id,String name, int hp,String typing, double length, double weight,String preEvolution, String move1, String move2, int move1dps, int move2dps, String weakness, String resistance) {
+    public Pokemon(int id,String name, int hp,String typing, double length, double weight,String preEvolution, String move1, String move2, int move1dps, int move2dps, String weakness, String resistance, String spriteName) {
 
         this.id = id;
         this.name = name;
+        this.spriteName = spriteName;
         this.hp = hp;
         this.typing = typing;
         this.length = length;
@@ -148,7 +149,15 @@ public class Pokemon {
         this.move2dps = move2dps;
     }
 
-    //toString
+    public String getSpriteName() {
+        return spriteName;
+    }
+
+    public void setSpriteName(String spriteName) {
+        this.spriteName = spriteName;
+    }
+
+//toString
 
 
     @Override

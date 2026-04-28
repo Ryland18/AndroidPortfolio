@@ -46,6 +46,9 @@ public class PokemonFragment extends Fragment {
 
     private String spriteName = "";
 
+    private static ArrayList<String> resistance;
+    private static ArrayList<String> weaknesse;
+
 
 
 
@@ -69,9 +72,8 @@ public class PokemonFragment extends Fragment {
         adapter = new CardAdapter(thePokemonList);
         viewPager.setAdapter(adapter);
 
+        loadPokemon("1007",100,80);
 
-        loadPokemon1();
-        loadPokemon2();
 
 
         setupDots(adapter.getItemCount());
@@ -87,9 +89,9 @@ public class PokemonFragment extends Fragment {
         return root;
     }
 
-    public void loadPokemon1(){
+    public void loadPokemon(String urlNumber, int power1, int power2){
         //the URL to request
-        String url = "https://pokeapi.co/api/v2/pokemon/1007";
+        String url = "https://pokeapi.co/api/v2/pokemon/"+urlNumber;
         //set up request for jasons
         //new request(web method, url ,anyListeners , mehtods to happen after data pull, what to do if errors)
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
@@ -108,8 +110,8 @@ public class PokemonFragment extends Fragment {
 
 
                     JSONArray typesD = jsonObject.getJSONArray("types");
-                    final String[] resistances = {""};
-                    final String[] weaknesses = {""};
+                    resistance = new ArrayList<>();
+                    weaknesse = new ArrayList<>();
                     ArrayList<String> type = new ArrayList<>();
                     ArrayList<String> typeurList = new ArrayList<>();
                     for (int t = 0; t<typesD.length();t++){
@@ -122,23 +124,7 @@ public class PokemonFragment extends Fragment {
 
                     }
 
-                    for (int w = 0; w<typeurList.size(); w++){
-                        getResistance(typeurList.get(w), new ResistanceCallback() {
-                            @Override
-                            public void onSuccess(String resistance) {
-                                resistances[0] += resistance.toString();
-                                Log.d("resistance", resistance.toString());
-                            }
-                        });
-                        getWeakness(typeurList.get(w), new ResistanceCallback() {
-                            @Override
-                            public void onSuccess(String weakness) {
-                                weaknesses[0] += weakness.toString();
-                            }
-                        });
-
-                    }
-
+                    Log.d("resistancePrivate -- After", resistance.toString());
 
 
 
@@ -158,110 +144,56 @@ public class PokemonFragment extends Fragment {
                     spriteName = spriteList.getString("front_default");
 
                    // Log.d("loadDetails",String.valueOf(spriteName));
-                   // //from https://www.youtube.com/watch?v=9_Tf3NSD2-M
+                   //from https://www.youtube.com/watch?v=9_Tf3NSD2-M
                    // Glide.
                    //         with(pokemon_card.this).
                    //         load(spriteName).
                    //         into(mainImage);
 
-                    thePokemonList.add(new Pokemon(id,name,hp,type.toString(),length,weight,preEvolution,moveBook.get(69),moveBook.get(68),100,80,weaknesses[0],resistances[0]));
-                        Log.d("loadDetails",String.valueOf(moveBook));
+                    //from chatgpt to get all calls complete
 
-                    adapter.notifyDataSetChanged();
-                }
-                catch (JSONException e){
-                    Log.e("Adapter LoadPokemon","Json error",e);
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError volleyError) {
-                Log.e("Adapter LoadPokemon", "PokeApi " + volleyError);
-            }
-        });
-        //add the request to the queue
-        requestQueue.add(request);
-        /////add request to the queue
-    }
-
-    public void loadPokemon2(){
-        //the URL to request
-        String url = "https://pokeapi.co/api/v2/pokemon/356";
-        //set up request for jasons
-        //new request(web method, url ,anyListeners , mehtods to happen after data pull, what to do if errors)
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject jsonObject) {
-                // if we get a 200 response code - http response code
-                try{
-                    //from chatgpt in assistig with grabbing only one pokemon
-                    int id = jsonObject.getInt("id");
-                    String name = jsonObject.getString("name"); // name and url are the data keywords
-
-                    int hp = jsonObject.getJSONArray("stats").getJSONObject(0).getInt("base_stat");
-                    double length = jsonObject.getDouble("height");
-                    double weight = jsonObject.getDouble("weight");
-                    String preEvolution = "none";
-
-
-                    JSONArray typesD = jsonObject.getJSONArray("types");
-                    final String[] resistances = {""};
-                    final String[] weaknesses = {""};
-                    ArrayList<String> type = new ArrayList<>();
-                    ArrayList<String> typeurList = new ArrayList<>();
-                    for (int t = 0; t<typesD.length();t++){
-                        JSONObject typeEntry = typesD.getJSONObject(t);
-                        JSONObject typeData = typeEntry.getJSONObject("type");
-                        String typeName = typeData.getString("name");
-                        String typeurl = typeData.getString("url");
-                        type.add(typeName);
-                        typeurList.add(typeurl);
-
-                    }
-
+                    int totalCalls = typeurList.size() * 2;
+                    int[] competedCalls = {0};
                     for (int w = 0; w<typeurList.size(); w++){
+
                         getResistance(typeurList.get(w), new ResistanceCallback() {
                             @Override
-                            public void onSuccess(String resistance) {
-                                resistances[0] += resistance.toString();
-                                Log.d("resistance", resistance.toString());
+                            public void onSuccess(String res) {
+                                Log.d("resistance lp1",res);
+                                resistance.add(res);
+                                competedCalls[0]++;
+                                 checkIfDone();
+                            }
+                            private void checkIfDone(){
+                                if (competedCalls[0] == totalCalls){
+                                    thePokemonList.add(new Pokemon(id,name,hp,type.toString(),length ,weight,preEvolution,moveBook.get(69),moveBook.get(68),power1,power2,weaknesse.toString(),resistance.toString(),spriteName));
+
+                                }
                             }
                         });
                         getWeakness(typeurList.get(w), new ResistanceCallback() {
                             @Override
                             public void onSuccess(String weakness) {
-                                weaknesses[0] += weakness.toString();
+                                weaknesse.add(weakness);
+                                competedCalls[0]++;
+                                checkIfDone();
+
+                            }
+                            private void checkIfDone(){
+                                if (competedCalls[0] == totalCalls){
+                                    thePokemonList.add(new Pokemon(id,name,hp,type.toString(),length,weight,preEvolution,moveBook.get(69),moveBook.get(68),power1,power2,weaknesse.toString(),resistance.toString(),spriteName));
+
+                                }
                             }
                         });
-
                     }
 
 
 
 
-                    // add the pokemon to the list
-                    JSONArray moveList = jsonObject.getJSONArray("moves");
-                    ArrayList<String> moveBook = new ArrayList<>();
-                    for (int p=0;p<moveList.length();p++){
-                        JSONObject moveEntry = moveList.getJSONObject(p);
-                        JSONObject moveData = moveEntry.getJSONObject("move");
-                        String moveName = moveData.getString("name");
-                        moveBook.add(moveName);
-                    }
-
-                    JSONObject spriteList = jsonObject.getJSONObject("sprites");
 
 
-                    spriteName = spriteList.getString("front_default");
-
-                    // Log.d("loadDetails",String.valueOf(spriteName));
-                    // //from https://www.youtube.com/watch?v=9_Tf3NSD2-M
-                    // Glide.
-                    //         with(pokemon_card.this).
-                    //         load(spriteName).
-                    //         into(mainImage);
-
-                    thePokemonList.add(new Pokemon(id,name,hp,type.toString(),length,weight,preEvolution,moveBook.get(69),moveBook.get(68),100,80,weaknesses[0],resistances[0]));
+                     Log.d("resistance lp1", thePokemonList.toString());
                     Log.d("loadDetails",String.valueOf(moveBook));
 
                     adapter.notifyDataSetChanged();
