@@ -43,7 +43,7 @@ public class SettingsActivity extends AppCompatActivity {
 
                     darkLightMode = findViewById(R.id.darkOrLight);
 
-                    saveBtn = findViewById(R.id.savestuff);
+                    saveBtn = findViewById(R.id.saveBtnItem);
 
                     SharedPreferences sharedPreferences = getSharedPreferences("darkMode", MODE_PRIVATE);
                     darkLightMode.setChecked(sharedPreferences.getBoolean("isDarkMode", false));
