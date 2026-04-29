@@ -2,12 +2,13 @@
     <!-- Base application theme. -->
     <style name="Theme.PortfolioUpgraded" parent="Theme.AppCompat.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/teal_200</item>
+        <item name="colorPrimary">@color/red</item>
         <item name="colorPrimaryVariant">@color/lime</item>
-        <item name="colorOnPrimary">@color/teal_200</item>
+        <item name="colorOnPrimary">@color/blue</item>
+        <item name="colorAccent">@color/lime</item>
 
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondary">@color/cyan</item>
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->

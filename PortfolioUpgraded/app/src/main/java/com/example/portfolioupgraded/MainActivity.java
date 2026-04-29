@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
 
-        SharedPreferences pref = getSharedPreferences("darkMode", MODE_PRIVATE)
+        SharedPreferences pref = getSharedPreferences("darkMode", MODE_PRIVATE);
         boolean isDarkMode = pref.getBoolean("isDarkMode",false);
 
         if (isDarkMode) {

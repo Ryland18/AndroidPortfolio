@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.guessanumber.guessanumberFragment"
-    android:background="@color/blue"
+    android:background="?attr/colorOnPrimary"
 
     >
 
@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/shape"
         android:backgroundTint="@null"
-
+        android:textColor="?attr/colorOnSecondary"
         android:fontFamily="serif"
         android:stateListAnimator="@null"
         android:text="Submit"
@@ -34,6 +34,8 @@
         android:id="@+id/editTextText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColorHint="?attr/colorOnSecondary"
+        android:textColor="?attr/colorOnSecondary"
         android:ems="10"
         android:fontFamily="monospace"
         android:hint="Your UserName"
@@ -54,7 +56,7 @@
         android:layout_height="127dp"
         android:fontFamily="sans-serif-black"
         android:text="Submit your Name"
-        android:textColor="@color/red"
+        android:textColor="?attr/colorPrimaryVariant"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
@@ -68,13 +70,14 @@
         android:fontFamily="sans-serif-black"
         android:text="Score"
         android:textSize="24sp"
-        android:textColor="@color/lime"
+        android:textColor="?attr/colorPrimaryVariant"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="317dp"
+        android:textColorHint="?attr/colorOnSecondary"
         android:layout_height="32dp"
         android:textColor="@color/red"
         android:textSize="20sp"
@@ -87,6 +90,7 @@
         android:layout_height="133dp"
         android:text="TextView"
         app:layout_constraintBottom_toTopOf="@+id/editTextText"
+        android:textColor="?attr/colorOnSecondary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5"

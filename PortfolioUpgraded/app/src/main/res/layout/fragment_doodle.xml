@@ -25,7 +25,7 @@
         <ImageButton
             android:id="@+id/eraser"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="56dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
@@ -33,9 +33,9 @@
             android:layout_marginStart="336dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
-            android:layout_marginBottom="651dp"
-            android:scaleType="fitXY"
-            android:contentDescription="@string/eraser" />
+            android:layout_marginBottom="665dp"
+            android:contentDescription="@string/eraser"
+            android:scaleType="fitXY" />
         <androidx.cardview.widget.CardView
             android:layout_width="100dp"
             android:layout_height="140dp"
@@ -96,6 +96,9 @@
                         android:id="@+id/green"
                         android:max="255"
                         android:progress="127"
+                        android:thumbTint="@color/lime"
+                        android:progressTint="@color/lime"
+                        android:progressBackgroundTint="@color/lime"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
                     <SeekBar
@@ -118,6 +121,7 @@
                     android:backgroundTint="@color/black"
                     android:gravity="center"
                     android:text="Set Brush"
+                    android:textColor="@color/white"
                     android:textSize="11sp" />
 
             </LinearLayout>

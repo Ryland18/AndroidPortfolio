@@ -5,13 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.madlib.madlibsFragment"
-    android:background="@color/cyan">
+    android:background="?attr/colorSecondary">
 
     <TextView
         android:id="@+id/text_gallery"
         android:layout_width="404dp"
         android:layout_height="391dp"
         android:fontFamily="cursive"
+        android:textColor="?attr/colorOnSecondary"
         android:textAlignment="center"
         android:textSize="24sp"
         android:visibility="gone"
@@ -24,6 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/shape"
+        android:textColor="?attr/colorOnSecondary"
 
         android:fontFamily="monospace"
         android:text="Storie 2"
@@ -39,7 +41,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/shape"
-
+        android:textColor="?attr/colorOnSecondary"
         android:fontFamily="monospace"
         android:text="Storie 1"
         app:layout_constraintBottom_toTopOf="@+id/text_gallery"
@@ -54,7 +56,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/shape"
-
+        android:textColor="?attr/colorOnSecondary"
         android:fontFamily="monospace"
         android:text="Storie 3"
         app:layout_constraintBottom_toTopOf="@+id/text_gallery"
@@ -69,6 +71,8 @@
         android:layout_height="49dp"
         android:ems="10"
         android:fontFamily="cursive"
+        android:textColor="?attr/colorOnSecondary"
+        android:textColorHint="?attr/colorOnSecondary"
         android:hint="Third word"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
@@ -80,6 +84,8 @@
         android:layout_height="57dp"
         android:layout_marginTop="8dp"
         android:ems="10"
+        android:textColor="?attr/colorOnSecondary"
+        android:textColorHint="?attr/colorOnSecondary"
         android:fontFamily="cursive"
         android:hint="Seventh word"
         android:inputType="text"
@@ -92,6 +98,8 @@
         android:id="@+id/FirstText"
         android:layout_width="112dp"
         android:layout_height="49dp"
+        android:textColor="?attr/colorOnSecondary"
+        android:textColorHint="?attr/colorOnSecondary"
         android:ems="10"
         android:fontFamily="cursive"
         android:hint="First word"
@@ -102,6 +110,8 @@
     <EditText
         android:id="@+id/FifthText"
         android:layout_width="112dp"
+        android:textColor="?attr/colorOnSecondary"
+        android:textColorHint="?attr/colorOnSecondary"
         android:layout_height="49dp"
         android:ems="10"
         android:fontFamily="cursive"
@@ -117,6 +127,8 @@
         android:layout_height="49dp"
         android:ems="10"
         android:fontFamily="cursive"
+        android:textColor="?attr/colorOnSecondary"
+        android:textColorHint="?attr/colorOnSecondary"
         android:hint="Second word"
         android:inputType="text"
         app:layout_constraintEnd_toStartOf="@+id/ThirdText"
@@ -126,6 +138,8 @@
     <EditText
         android:id="@+id/FourthText"
         android:layout_width="112dp"
+        android:textColor="?attr/colorOnSecondary"
+        android:textColorHint="?attr/colorOnSecondary"
         android:layout_height="49dp"
         android:ems="10"
         android:fontFamily="cursive"
@@ -140,6 +154,8 @@
         android:layout_height="49dp"
         android:ems="10"
         android:fontFamily="cursive"
+        android:textColor="?attr/colorOnSecondary"
+        android:textColorHint="?attr/colorOnSecondary"
         android:hint="Sixth word"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
@@ -149,6 +165,8 @@
         android:id="@+id/EightText"
         android:layout_width="142dp"
         android:layout_height="49dp"
+        android:textColor="?attr/colorOnSecondary"
+        android:textColorHint="?attr/colorOnSecondary"
         android:layout_marginTop="8dp"
         android:ems="10"
         android:fontFamily="cursive"
@@ -168,7 +186,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-
-        android:backgroundTint="@color/lime"/>
+        android:textColor="?attr/colorOnSecondary"
+        android:backgroundTint="?attr/colorSecondary"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

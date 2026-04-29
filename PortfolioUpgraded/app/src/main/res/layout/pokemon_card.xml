@@ -10,7 +10,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="475dp"
-        android:background="#F8D030"
+        android:background="?attr/colorSecondary"
         android:padding="16dp">
 
         <LinearLayout
@@ -25,18 +25,21 @@
                 android:layout_width="67dp"
                 android:layout_height="wrap_content"
                 android:text="PreEvolution:"
+                android:textColor="?attr/colorOnSecondary"
                 android:textSize="11sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/pokemonStageImageView"
                 android:layout_width="match_parent"
+                android:textColor="?attr/colorOnSecondary"
                 android:layout_height="27dp" />
         </LinearLayout>
 
         <TextView
             android:id="@+id/pokemonNameTextView"
             android:layout_width="143dp"
+            android:textColor="?attr/colorOnSecondary"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginStart="4dp"
@@ -67,6 +70,7 @@
                 android:id="@+id/pokemonHPTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="?attr/colorOnSecondary"
                 android:layout_marginStart="8dp"
                 android:text="100"
                 android:textSize="14sp"
@@ -75,6 +79,7 @@
             <TextView
                 android:id="@+id/pokemonTypeImageView"
                 android:layout_width="91dp"
+                android:textColor="?attr/colorOnSecondary"
                 android:layout_height="wrap_content"
                 android:textSize="10sp" />
         </LinearLayout>
@@ -91,6 +96,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
+                android:textColor="?attr/colorOnSecondary"
                 android:text="Illus. Mitsuhiro Arita  © 1995, 96, 98 Nintendo, Creatures, GAMEFREAK."
                 android:textSize="10sp" />
 
@@ -98,6 +104,7 @@
                 android:id="@+id/pokemonLengthTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:textColor="?attr/colorOnSecondary"
                 android:text="Length: 1.0 m"
                 android:textSize="14sp" />
 
@@ -105,6 +112,7 @@
                 android:id="@+id/pokemonWeightTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:textColor="?attr/colorOnSecondary"
                 android:text="Weight: 10.0 kg"
                 android:textSize="14sp" />
         </LinearLayout>
@@ -113,6 +121,7 @@
             android:id="@+id/movesLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="?attr/colorOnSecondary"
             android:layout_below="@id/pokemonStatsLayout"
             android:layout_marginTop="0dp"
             android:text="Moves:"
@@ -133,6 +142,7 @@
                 <TextView
                     android:id="@+id/pokemonMove1TextView"
                     android:layout_width="0dp"
+                    android:textColor="?attr/colorOnSecondary"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Move 1"
@@ -143,13 +153,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="10"
+                    android:textColor="?attr/colorOnSecondary"
                     android:textSize="16sp" />
             </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@android:color/black" />
+                android:background="?attr/colorOnSecondary" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -159,6 +170,7 @@
                 <TextView
                     android:id="@+id/pokemonMove2TextView"
                     android:layout_width="0dp"
+                    android:textColor="?attr/colorOnSecondary"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Move 2"
@@ -167,6 +179,7 @@
                 <TextView
                     android:id="@+id/pokemonMove2PowerTextView"
                     android:layout_width="wrap_content"
+                    android:textColor="?attr/colorOnSecondary"
                     android:layout_height="wrap_content"
                     android:text="20"
                     android:textSize="16sp" />
@@ -176,7 +189,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@android:color/black" />
+            android:background="?attr/colorOnSecondary" />
 
         <LinearLayout
             android:id="@+id/weaknessResistanceLayout"
@@ -196,12 +209,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Weakness"
+                    android:textColor="?attr/colorOnSecondary"
                     android:textSize="14sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/pokemonWeaknessTextView"
                     android:layout_width="88dp"
+                    android:textColor="?attr/colorOnSecondary"
                     android:layout_height="wrap_content"
                     android:text="Fire"
                     android:textSize="14sp" />
@@ -218,11 +233,13 @@
                     android:layout_height="wrap_content"
                     android:text="Resistance"
                     android:textSize="14sp"
+                    android:textColor="?attr/colorOnSecondary"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/pokemonResistanceTextView"
                     android:layout_width="match_parent"
+                    android:textColor="?attr/colorOnSecondary"
                     android:layout_height="wrap_content"
                     android:text="Water"
                     android:textSize="14sp" />
@@ -233,6 +250,7 @@
             android:id="@+id/copyrightTextView"
             android:layout_width="347dp"
             android:layout_height="wrap_content"
+            android:textColor="?attr/colorOnSecondary"
             android:layout_below="@id/weaknessResistanceLayout"
             android:layout_marginTop="7dp"
             android:gravity="center_horizontal"
