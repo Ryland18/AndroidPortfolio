@@ -29,8 +29,11 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         ImageView imG = binding.imageView5;
+        TextView hello= binding.textView2;
         // landen helped make the profile show
         imG.setImageResource(R.drawable.profile);
+
+
 
         return root;
     }

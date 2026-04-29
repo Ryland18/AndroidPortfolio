@@ -4,6 +4,7 @@ package com.example.portfolioupgraded;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,7 +28,6 @@ public class SettingsActivity extends AppCompatActivity {
     private Switch darkLightMode;
 
     private SettingsActivityBinding binding;
-    private Button saveBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +42,6 @@ public class SettingsActivity extends AppCompatActivity {
                     newUsername = findViewById(R.id.newUsername);
 
                     darkLightMode = findViewById(R.id.darkOrLight);
-
-                    saveBtn = findViewById(R.id.saveBtnItem);
 
                     SharedPreferences sharedPreferences = getSharedPreferences("darkMode", MODE_PRIVATE);
                     darkLightMode.setChecked(sharedPreferences.getBoolean("isDarkMode", false));
@@ -69,21 +67,21 @@ public class SettingsActivity extends AppCompatActivity {
                         }
                     });
 
-                    saveBtn.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            String un = newUsername.getText().toString();
-
-                            // Validate username is not empty
-                            if (un.isEmpty()) {
-                                Snackbar.make(v, "Username cannot be empty", Snackbar.LENGTH_SHORT).show();
-                                return;
-                            }
-
-
-                            // Update password if it passes strength validation
-                        }
-                    });
+//                    saveBtn.setOnClickListener(new View.OnClickListener() {
+//                        @Override
+//                        public void onClick(View v) {
+//                            String un = newUsername.getText().toString();
+//
+//                            // Validate username is not empty
+//                            if (un.isEmpty()) {
+//                                Snackbar.make(v, "Username cannot be empty", Snackbar.LENGTH_SHORT).show();
+//                                return;
+//                            }
+//
+//
+//                            // Update password if it passes strength validation
+//                        }
+//                    });
 
             }
 
@@ -99,7 +97,13 @@ public class SettingsActivity extends AppCompatActivity {
                 }
             }
 
-        }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d("onStop","ran");
+
+    }
+}
 
 
 

@@ -22,20 +22,6 @@
 
 
         <!--img from the users project-->
-        <ImageButton
-            android:id="@+id/eraser"
-            android:layout_width="wrap_content"
-            android:layout_height="56dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="336dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginBottom="665dp"
-            android:contentDescription="@string/eraser"
-            android:scaleType="fitXY" />
         <androidx.cardview.widget.CardView
             android:layout_width="100dp"
             android:layout_height="140dp"

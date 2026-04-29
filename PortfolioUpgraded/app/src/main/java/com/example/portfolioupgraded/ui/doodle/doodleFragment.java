@@ -41,13 +41,7 @@ public class doodleFragment  extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentDoodleBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-            erase = root.findViewById(R.id.eraser);
-            erase.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    startActivity(new Intent(requireContext(),getActivity().getClass()));
-                }
-            });
+
             paper = root.findViewById(R.id.drawView);
             size = root.findViewById(R.id.brush_sizeBTN);
             red = root.findViewById(R.id.red);
