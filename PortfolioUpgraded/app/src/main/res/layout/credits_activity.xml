@@ -41,7 +41,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-black"
-                    android:text=" https://www.linkedin.com/in/ryland-martz-845161388/ ---- profile image \n \n Chatgpt - helped make the gradient of some buttons to show \n\n other Ai like copiolet or google ai --- help with making button show visable but unable to press or click \n\n Landen - helped my image of my portfilio show up" />
+                    android:text=" https://www.linkedin.com/in/ryland-martz-845161388/ ---- profile image \n \n Chatgpt - helped make the gradient of some buttons to show, assisted and helped me learn on how to use dark and light mode properly, slideshow or swiping for a recyclerview for the pokemon as well as assisted in grabing data for weakness and resistances, helped me remember how to use rgb values, and finally assisted me with how to properly make a leaderboard using FireStore from Firebase \n\n other Ai like copiolet or google ai --- help with making button show visable but unable to press or click \n\n Landen - helped my image of my portfilio show up" />
 
                 <TextView
                     android:id="@+id/textView12"
