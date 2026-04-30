@@ -17,8 +17,11 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.portfolioupgraded.R;
 import com.example.portfolioupgraded.databinding.FragmentHomeBinding;
 
+import org.w3c.dom.Text;
+
 public class HomeFragment extends Fragment {
 
+    public static TextView hello;
     private FragmentHomeBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -29,7 +32,7 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         ImageView imG = binding.imageView5;
-        TextView hello= binding.textView2;
+        hello= binding.textView2;
         // landen helped make the profile show
         imG.setImageResource(R.drawable.profile);
 

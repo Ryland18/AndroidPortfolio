@@ -21,6 +21,7 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.portfolioupgraded.databinding.SettingsActivityBinding;
+import com.example.portfolioupgraded.ui.home.HomeFragment;
 import com.google.android.material.snackbar.Snackbar;
 
 public class SettingsActivity extends AppCompatActivity {
@@ -101,7 +102,12 @@ public class SettingsActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         Log.d("onStop","ran");
+        String oldHello = String.valueOf(HomeFragment.hello.getText());
 
+        if (newUsername.getText().length()>=1) {
+            Log.d("new user content", newUsername.getText().toString());
+            HomeFragment.hello.setText("Hello "+newUsername.getText().toString()+". "+oldHello);
+        }
     }
 }
 

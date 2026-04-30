@@ -44,10 +44,7 @@ public class PokemonFragment extends Fragment {
     private RequestQueue requestQueue;
     private CardAdapter adapter;
 
-    private String spriteName = "";
 
-    private static ArrayList<String> resistance;
-    private static ArrayList<String> weaknesse;
 
 
 
@@ -72,7 +69,14 @@ public class PokemonFragment extends Fragment {
         adapter = new CardAdapter(thePokemonList);
         viewPager.setAdapter(adapter);
 
-        loadPokemon("1007",100,80);
+        loadPokemon("1007", 69,68,100, 80, "None");
+        loadPokemon("6",2,18,30,100,"Charmeleon");
+        loadPokemon("160",0,9, 60, 95, "Croconaw");
+        loadPokemon("248",2,20, 45,120,"Pupitar");
+        loadPokemon("145",24,32, 65, 105, "None");
+        loadPokemon("249",15,26, 75, 100,"None");
+        loadPokemon("644",12,28, 110, 80, "None");
+
 
 
 
@@ -89,7 +93,7 @@ public class PokemonFragment extends Fragment {
         return root;
     }
 
-    public void loadPokemon(String urlNumber, int power1, int power2){
+    public void loadPokemon(String urlNumber, int mv1Loc, int mv2Loc, int power1, int power2, String preEvolution){
         //the URL to request
         String url = "https://pokeapi.co/api/v2/pokemon/"+urlNumber;
         //set up request for jasons
@@ -106,12 +110,12 @@ public class PokemonFragment extends Fragment {
                     int hp = jsonObject.getJSONArray("stats").getJSONObject(0).getInt("base_stat");
                     double length = jsonObject.getDouble("height");
                     double weight = jsonObject.getDouble("weight");
-                    String preEvolution = "none";
+
 
 
                     JSONArray typesD = jsonObject.getJSONArray("types");
-                    resistance = new ArrayList<>();
-                    weaknesse = new ArrayList<>();
+                    final ArrayList<String> resistance = new ArrayList<>();
+                    final ArrayList<String> weaknesse = new ArrayList<>();
                     ArrayList<String> type = new ArrayList<>();
                     ArrayList<String> typeurList = new ArrayList<>();
                     for (int t = 0; t<typesD.length();t++){
@@ -141,7 +145,8 @@ public class PokemonFragment extends Fragment {
                     JSONObject spriteList = jsonObject.getJSONObject("sprites");
 
 
-                    spriteName = spriteList.getString("front_default");
+                    final String spriteName = spriteList.getString("front_default");
+                    Log.d("Glide - PokeFrag",spriteName);
 
                    // Log.d("loadDetails",String.valueOf(spriteName));
                    //from https://www.youtube.com/watch?v=9_Tf3NSD2-M
@@ -166,7 +171,8 @@ public class PokemonFragment extends Fragment {
                             }
                             private void checkIfDone(){
                                 if (competedCalls[0] == totalCalls){
-                                    thePokemonList.add(new Pokemon(id,name,hp,type.toString(),length ,weight,preEvolution,moveBook.get(69),moveBook.get(68),power1,power2,weaknesse.toString(),resistance.toString(),spriteName));
+                                    Log.d("Glide - PokeFrag onRe",spriteName);
+                                    thePokemonList.add(new Pokemon(id,name,hp,type.toString(),length ,weight,preEvolution,moveBook.get(mv1Loc),moveBook.get(mv2Loc),power1,power2,weaknesse.toString(),resistance.toString(),spriteName));
 
                                 }
                             }
@@ -181,7 +187,8 @@ public class PokemonFragment extends Fragment {
                             }
                             private void checkIfDone(){
                                 if (competedCalls[0] == totalCalls){
-                                    thePokemonList.add(new Pokemon(id,name,hp,type.toString(),length,weight,preEvolution,moveBook.get(69),moveBook.get(68),power1,power2,weaknesse.toString(),resistance.toString(),spriteName));
+                                    Log.d("Glide - PokeFrag onWe",spriteName);
+                                    thePokemonList.add(new Pokemon(id,name,hp,type.toString(),length,weight,preEvolution,moveBook.get(mv1Loc),moveBook.get(mv2Loc),power1,power2,weaknesse.toString(),resistance.toString(),spriteName));
 
                                 }
                             }

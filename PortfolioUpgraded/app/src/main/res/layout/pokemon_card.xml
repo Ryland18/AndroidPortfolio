@@ -31,21 +31,22 @@
 
             <TextView
                 android:id="@+id/pokemonStageImageView"
-                android:layout_width="match_parent"
-                android:textColor="?attr/colorOnSecondary"
-                android:layout_height="27dp" />
+                android:layout_width="81dp"
+                android:layout_height="wrap_content"
+                android:textColor="?attr/colorOnSecondary" />
         </LinearLayout>
 
         <TextView
             android:id="@+id/pokemonNameTextView"
-            android:layout_width="143dp"
-            android:textColor="?attr/colorOnSecondary"
+            android:layout_width="134dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginStart="4dp"
+            android:layout_marginStart="13dp"
             android:layout_toEndOf="@id/top_left_container"
             android:gravity="center_horizontal"
             android:text="\t\tPokemon Name\n"
+            android:textAlignment="center"
+            android:textColor="?attr/colorOnSecondary"
             android:textSize="14sp"
             android:textStyle="bold" />
 

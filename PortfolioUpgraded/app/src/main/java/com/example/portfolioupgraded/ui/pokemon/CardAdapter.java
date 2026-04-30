@@ -58,6 +58,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
     @Override
         public void onBindViewHolder(ViewHolder holder, int position) {
             Pokemon p = pokemonList.get(position);
+        Log.d("Glide",String.valueOf(p));
             holder.id.setText(String.valueOf(p.getId()));
             holder.type.setText(String.valueOf(p.getTyping()));
             Glide.with(holder.itemView.getContext()).load(String.valueOf(p.getSpriteName())).into(holder.image);
