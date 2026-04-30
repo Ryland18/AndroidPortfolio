@@ -1,6 +1,8 @@
 package com.example.portfolioupgraded.ui.guessanumber;
 
 import static android.content.ContentValues.TAG;
+import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -61,6 +63,7 @@ public class guessanumberFragment extends Fragment {
         final EditText editText = binding.editTextText;
         TextView score = binding.textView5;
         TextView textView = binding.textView3;
+        leaderboard.setVisibility(GONE);
         textView.setText("Welcome to the Guess a number game where you guess the number the AI comes up with");
         final int[] points = {0};
         final int[] guesses = {10};
@@ -144,6 +147,8 @@ public class guessanumberFragment extends Fragment {
                     else {
                         guessing =true;
                         username= editText.getText().toString();
+                        editText.setText("");
+                        button.setText("Guess");
                     }
                 }
             });
@@ -202,8 +207,8 @@ public class guessanumberFragment extends Fragment {
 
                         rank++;
                     }
-
-                   leaderboard.setText(leaderboardText.toString());
+                    leaderboard.setVisibility(VISIBLE);
+                    leaderboard.setText(leaderboardText.toString());
 
 
                 });
